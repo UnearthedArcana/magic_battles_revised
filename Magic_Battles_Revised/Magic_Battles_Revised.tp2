@@ -1,0 +1,14 @@
+BACKUP ~Magic_Battles_Revised/backup~
+AUTHOR ~SubtleD~
+
+
+LANGUAGE
+  ~English~
+  ~english~
+  ~Magic_Battles_Revised/language/english/setup.tra~
+
+
+BEGIN @10
+
+INCLUDE ~Magic_Battles_Revised/lib/MBR.tpa~
+LAF mbr END

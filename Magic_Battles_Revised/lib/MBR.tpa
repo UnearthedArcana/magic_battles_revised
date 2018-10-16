@@ -1,0 +1,598 @@
+DEFINE_ACTION_FUNCTION mbr BEGIN
+
+// modify minor deflection____________________________________________________________
+//
+ACTION_FOR_EACH msd IN ~spwi318~ ~spra302~ BEGIN
+ ACTION_IF FILE_EXISTS_IN_GAME ~%msd%.spl~ BEGIN
+  COPY_EXISTING ~%msd%.spl~ ~override~
+	PATCH_IF MOD_IS_INSTALLED ~spell_rev.tp2~ ~55~ BEGIN
+	  SAY UNIDENTIFIED_DESC @1011
+	END
+	PATCH_IF NOT MOD_IS_INSTALLED ~spell_rev.tp2~ ~55~ BEGIN
+	  SAY UNIDENTIFIED_DESC @1012
+	END
+	LPF DELETE_EFFECT INT_VAR match_opcode = 201 match_parameter2 = 5 END
+	LPF DELETE_EFFECT INT_VAR match_opcode = 201 match_parameter2 = 6 END
+	LPF DELETE_EFFECT INT_VAR match_opcode = 201 match_parameter2 = 7 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 parameter2 = 5 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 parameter2 = 6 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 parameter2 = 7 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 parameter2 = 8 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 parameter2 = 9 END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 201 parameter1 = 7 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 328 parameter2 = 108 END
+// disable the above line for SCS v32
+// add 101 vs. dispel
+// and 267 vs. "Dispel Effects" strref
+// bgee: 14056; sod: 14056 bg2ee: 14056 iwdee: 35499
+	PATCH_IF FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+	  LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 101 parameter2 = 58 END
+	  PATCH_IF NOT GAME_IS ~iwdee~ BEGIN
+		LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 267 parameter1 = 14056 parameter2 = 0 END
+	  END
+	  PATCH_IF GAME_IS ~iwdee~ BEGIN
+		LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 267 parameter1 = 35499 parameter2 = 0 END
+	  END
+	END
+
+COPY_EXISTING ~spwi318.spl~ ~override/spwi406.spl~
+COPY_EXISTING ~spra302.spl~ ~override/spwi406.spl~
+COPY_EXISTING ~spra302.spl~ ~override/spwm125.spl~
+			  ~spra302.spl~ ~override/spwm126.spl~
+			  ~spra302.spl~ ~override/spin920.spl~
+	WRITE_SHORT 0x1c 4
+ END
+END
+
+// modify spell deflection____________________________________________________________
+//
+ACTION_IF FILE_EXISTS_IN_GAME ~spwi618.spl~ BEGIN
+  COPY_EXISTING ~spwi618.spl~ ~override/spwi522.spl~
+				~spin710.spl~ ~override~
+	PATCH_IF MOD_IS_INSTALLED ~spell_rev.tp2~ ~55~ BEGIN
+	  SAY UNIDENTIFIED_DESC @1021
+	END
+	PATCH_IF NOT MOD_IS_INSTALLED ~spell_rev.tp2~ ~55~ BEGIN
+	  SAY UNIDENTIFIED_DESC @1022
+	END
+	WRITE_LONG 0x34 5
+	LPF DELETE_EFFECT INT_VAR match_opcode = 201 match_parameter2 = 8 END
+	LPF DELETE_EFFECT INT_VAR match_opcode = 201 match_parameter2 = 9 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 7 parameter2 = 8 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 7 parameter2 = 9 END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 201 parameter1 = 14 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 328 parameter2 = 108 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 328 parameter2 = 108 END
+// disable the above line for SCS v32
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 321 parameter1 = 0 parameter2 = 0 STR_VAR resource = ~spwi318~ insert = ~first~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 206 parameter1 = 0 parameter2 = 0 STR_VAR resource = ~spwi318~ insert = ~last~ END
+	PATCH_IF FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+	  LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 101 parameter2 = 58 END
+	  PATCH_IF NOT GAME_IS ~iwdee~ BEGIN
+		LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 267 parameter1 = 14056 parameter2 = 0 END
+	  END
+	  PATCH_IF GAME_IS ~iwdee~ BEGIN
+		LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 267 parameter1 = 35499 parameter2 = 0 END
+	  END
+	END
+
+  COPY_EXISTING ~spin710.spl~ ~override/spwi406.spl~
+END
+
+// modify greater deflection__________________________________________________________
+//
+ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ BEGIN
+ ACTION_IF FILE_EXISTS_IN_GAME ~spwi701.spl~ BEGIN
+  COPY_EXISTING ~spwi701.spl~ ~override~
+	PATCH_IF MOD_IS_INSTALLED ~spell_rev.tp2~ ~55~ BEGIN
+	  SAY UNIDENTIFIED_DESC @1031
+	END
+	PATCH_IF NOT MOD_IS_INSTALLED ~spell_rev.tp2~ ~55~ BEGIN
+	  SAY UNIDENTIFIED_DESC @1032
+	END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 201 parameter1 = 21 END
+//	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 328 parameter2 = 108 END
+// GSD is too strong, don't represent it as SS
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 321 parameter1 = 0 parameter2 = 0 STR_VAR resource = ~spwi522~ insert = ~first~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 321 parameter1 = 0 parameter2 = 0 STR_VAR resource = ~spwi318~ insert = ~first~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 206 parameter1 = 0 parameter2 = 0 STR_VAR resource = ~spwi318~ insert = ~last~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 206 parameter1 = 0 parameter2 = 0 STR_VAR resource = ~spwi522~ insert = ~last~ END
+	PATCH_IF FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+	  LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 101 parameter2 = 58 END
+	  PATCH_IF NOT GAME_IS ~iwdee~ BEGIN
+		LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 267 parameter1 = 14056 parameter2 = 0 END
+	  END
+	  PATCH_IF GAME_IS ~iwdee~ BEGIN
+		LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 267 parameter1 = 35499 parameter2 = 0 END
+	  END
+	END
+ END
+END
+
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ BEGIN
+ ACTION_IF FILE_EXISTS_IN_GAME ~spwi618.spl~ BEGIN
+  COPY_EXISTING ~spwi618.spl~ ~override/spwi701.spl~
+	SAY UNIDENTIFIED_DESC @1033
+	LPF DELETE_EFFECT INT_VAR match_opcode = 201 match_parameter2 = 8 END
+	LPF DELETE_EFFECT INT_VAR match_opcode = 201 match_parameter2 = 9 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 7 parameter2 = 8 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 7 parameter2 = 9 END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 201 parameter1 = 21 END
+//	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 328 parameter2 = 108 END
+// GSD is too strong, don't represent it as SS
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 321 parameter1 = 0 parameter2 = 0 STR_VAR resource = ~spwi522~ insert = ~first~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 321 parameter1 = 0 parameter2 = 0 STR_VAR resource = ~spwi318~ insert = ~first~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 206 parameter1 = 0 parameter2 = 0 STR_VAR resource = ~spwi318~ insert = ~last~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 206 parameter1 = 0 parameter2 = 0 STR_VAR resource = ~spwi522~ insert = ~last~ END
+	PATCH_IF FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+	  LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 101 parameter2 = 58 END
+	  PATCH_IF NOT GAME_IS ~iwdee~ BEGIN
+		LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 267 parameter1 = 14056 parameter2 = 0 END
+	  END
+	  PATCH_IF GAME_IS ~iwdee~ BEGIN
+		LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 267 parameter1 = 35499 parameter2 = 0 END
+	  END
+	END
+ END
+END
+//____________________________________________________________________________________
+
+// modify spell trap__________________________________________________________________
+//
+ACTION_IF FILE_EXISTS_IN_GAME ~spwi902.spl~ BEGIN
+  COPY_EXISTING ~spwi902.spl~ ~override~
+	SAY UNIDENTIFIED_DESC @1041
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 259 opcode = 102 parameter1 = 1 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 opcode = 102 parameter1 = 1 END
+	LPF DELETE_EFFECT INT_VAR match_opcode = 259 END
+	LPF DELETE_EFFECT INT_VAR match_opcode = 201 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 102 parameter1 = 1 parameter1 = 2 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 102 parameter1 = 1 parameter1 = 3 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 102 parameter1 = 1 parameter1 = 4 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 102 parameter1 = 1 parameter1 = 5 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 102 parameter1 = 1 parameter1 = 6 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 102 parameter1 = 1 parameter1 = 7 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 102 parameter1 = 1 parameter1 = 8 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 102 parameter1 = 1 parameter1 = 9 END
+	PATCH_IF FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+	  LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 102 match_parameter1 = 4 opcode = 101 parameter2 = 58 END
+	  PATCH_IF NOT GAME_IS ~iwdee~ BEGIN
+		LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 102 match_parameter1 = 4 opcode = 267 parameter1 = 14056 parameter2 = 0 END
+	  END
+	  PATCH_IF GAME_IS ~iwdee~ BEGIN
+		LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 102 match_parameter1 = 4 opcode = 267 parameter1 = 35499 parameter2 = 0 END
+	  END
+	END
+END
+//____________________________________________________________________________________
+
+// create 2da map of spells=>scrolls__________________________________________________
+//
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~qdscrlmap.2da~ BEGIN
+
+<<<<<<<< QD/qdscrlmap.2da
+2DA V1.0 
+SPLRES
+			ITMRES	SCHOOL
+>>>>>>>> 
+
+	COPY ~QD/qdscrlmap.2da~ ~override/qdscrlmap.2da~ 
+	COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ 
+		PATCH_IF (SOURCE_SIZE > 0x71) BEGIN 
+			GET_OFFSET_ARRAY headers ITM_V10_HEADERS
+			PHP_EACH headers AS int => hoff BEGIN 
+				GET_OFFSET_ARRAY2 fx hoff ITM_V10_HEAD_EFFECTS
+				PHP_EACH fx AS intj => foff BEGIN 
+					READ_SHORT foff opcode 
+					PATCH_IF (opcode = 147) BEGIN 
+						READ_ASCII (foff + 0x14) splres
+						INNER_PATCH_FILE ~%splres%.spl~ BEGIN
+							READ_BYTE 0x25 spl_school
+						END
+						PATCH_IF (%spl_school% = 0) BEGIN
+							TEXT_SPRINT splschool ~none~
+						END
+						PATCH_IF (%spl_school% = 1) BEGIN
+							TEXT_SPRINT splschool ~abjuration~
+						END
+						PATCH_IF (%spl_school% = 2) BEGIN
+							TEXT_SPRINT splschool ~conjuration~
+						END
+						PATCH_IF (%spl_school% = 3) BEGIN
+							TEXT_SPRINT splschool ~divination~
+						END
+						PATCH_IF (%spl_school% = 4) BEGIN
+							TEXT_SPRINT splschool ~enchantment~
+						END
+						PATCH_IF (%spl_school% = 5) BEGIN
+							TEXT_SPRINT splschool ~illusion~
+						END
+						PATCH_IF (%spl_school% = 6) BEGIN
+							TEXT_SPRINT splschool ~evocation~
+						END
+						PATCH_IF (%spl_school% = 7) BEGIN
+							TEXT_SPRINT splschool ~necromancy~
+						END
+						PATCH_IF (%spl_school% = 8) BEGIN
+							TEXT_SPRINT splschool ~alteration~
+						END
+						PATCH_IF (%spl_school% = 9) BEGIN
+							TEXT_SPRINT splschool ~generalist~
+						END
+						PATCH_IF NOT (FILE_CONTAINS_EVALUATED (~qdscrlmap.2da~ ~%SOURCE_RES%~)) BEGIN
+							INNER_ACTION BEGIN 
+								APPEND ~qdscrlmap.2da~ ~%splres%	%SOURCE_RES% 	%splschool% ~
+							END
+						END 
+					END 
+				END 
+			END 
+		END 
+	BUT_ONLY	
+	COPY_EXISTING ~qdscrlmap.2da~ ~override~
+		PRETTY_PRINT_2DA
+END
+//____________________________________________________________________________________
+
+// get RES of scrolls for MSD, SD, MST, ST (now GSD), MGOI, GOI_______________________
+//
+COPY_EXISTING ~qdscrlmap.2da~ ~override~
+	COUNT_2DA_COLS cols
+	READ_2DA_ENTRIES_NOW ~r2en_schools~ cols
+      FOR (row = 1; row < r2en_schools; row += 1) BEGIN
+        READ_2DA_ENTRY_FORMER ~r2en_schools~ row 0 the_spell
+        READ_2DA_ENTRY_FORMER ~r2en_schools~ row 1 the_scroll
+		TEXT_SPRINT $d5_spell_scroll_array(~%the_spell%~) ~%the_scroll%~
+	END
+BUT_ONLY
+
+ACTION_PHP_EACH d5_spell_scroll_array AS spell => scroll BEGIN 
+  ACTION_IF (~%spell%~ STRING_EQUAL_CASE ~spwi318~) BEGIN
+  	OUTER_SPRINT ~MSD_scroll~ ~%scroll%~
+  END
+  ACTION_IF (~%spell%~ STRING_EQUAL_CASE ~spwi618~) BEGIN
+  	OUTER_SPRINT ~SD_scroll~ ~%scroll%~
+  END
+  ACTION_IF (~%spell%~ STRING_EQUAL_CASE ~spwi701~) BEGIN
+  	OUTER_SPRINT ~GSD_scroll~ ~%scroll%~
+  END
+  ACTION_IF (~%pell%~ STRING_EQUAL_CASE ~spwi522~) BEGIN
+  	OUTER_SPRINT ~MST_scroll~ ~%scroll%~
+  END
+  ACTION_IF (~%spell%~ STRING_EQUAL_CASE ~spwi406~) BEGIN
+  	OUTER_SPRINT ~MGOI_scroll~ ~%scroll%~
+  END
+  ACTION_IF (~%spell%~ STRING_EQUAL_CASE ~spwi602~) BEGIN
+  	OUTER_SPRINT ~GOI_scroll~ ~%scroll%~
+  END
+END
+//____________________________________________________________________________________
+
+// consolidate scrolls________________________________________________________________
+//
+ACTION_IF (FILE_EXISTS_IN_GAME ~%MSD_scroll%.itm~) BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%MGOI_scroll%.itm~) BEGIN
+	COPY_EXISTING ~%MSD_scroll%.itm~ ~override/%MGOI_scroll%.itm~
+  END
+END
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~%SD_scroll%.itm~) BEGIN
+  COPY_EXISTING ~%SD_scroll%.itm~ ~override~
+  READ_LONG 0xc sd_name_strref
+  READ_LONG 0x54 sd_desc_strref
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%MST_scroll%.itm~) BEGIN
+	COPY_EXISTING ~%MST_scroll%.itm~ ~override~
+	  WRITE_LONG 0xc sd_name_strref
+	  WRITE_LONG 0x54 sd_desc_strref
+	COPY_EXISTING ~%MST_scroll%.itm~ ~override/%SD_scroll%.itm~	
+  END
+END
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~%GSD_scroll%.itm~) BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%GOI_scroll%.itm~) BEGIN
+	COPY_EXISTING ~%GSD_scroll%.itm~ ~override/%GOI_scroll%.itm~
+  END
+END
+//____________________________________________________________________________________
+
+// put MGOI, GOI, MST in hidespl______________________________________________________
+//
+ACTION_IF GAME_IS ~bgee bg2ee eet~ BEGIN
+  APPEND ~hidespl.2da~ ~spwi618	1	0	0 
+spwi406	1	0	0 
+spwi602	1	0	0 ~
+END
+ACTION_IF GAME_IS ~iwdee~ BEGIN
+  APPEND ~hidespl.2da~ ~spwi618	1	0 
+spwi406	1	0 
+spwi602	1	0 ~
+END
+//____________________________________________________________________________________
+
+// modify shield of the archons_______________________________________________________
+//
+ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ BEGIN
+ ACTION_IF FILE_EXISTS_IN_GAME ~sppr701.spl~ BEGIN
+  COPY_EXISTING ~sppr701.spl~ ~override~
+	SAY UNIDENTIFIED_DESC @1051
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 259 opcode = 102 parameter1 = 1 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 opcode = 102 parameter1 = 1 END
+	LPF DELETE_EFFECT INT_VAR match_opcode = 259 END
+	LPF DELETE_EFFECT INT_VAR match_opcode = 201 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 102 parameter1 = 1 parameter1 = 2 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 102 parameter1 = 1 parameter1 = 3 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 102 parameter1 = 1 parameter1 = 4 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 102 parameter1 = 1 parameter1 = 5 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 102 parameter1 = 1 parameter1 = 6 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 102 parameter1 = 1 parameter1 = 7 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 102 parameter1 = 1 parameter1 = 8 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 102 parameter1 = 1 parameter1 = 9 END
+	PATCH_IF FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+	  LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 102 match_parameter1 = 4 opcode = 101 parameter2 = 58 END
+	  PATCH_IF NOT GAME_IS ~iwdee~ BEGIN
+		LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 102 match_parameter1 = 4 opcode = 267 parameter1 = 14056 parameter2 = 0 END
+	  END
+	  PATCH_IF GAME_IS ~iwdee~ BEGIN
+		LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 102 match_parameter1 = 4 opcode = 267 parameter1 = 35499 parameter2 = 0 END
+	  END
+	END
+ END
+END
+
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ BEGIN
+ ACTION_IF FILE_EXISTS_IN_GAME ~sppr701.spl~ BEGIN
+  COPY_EXISTING ~sppr701.spl~ ~override~
+	SAY UNIDENTIFIED_DESC @1053
+	LPF DELETE_EFFECT INT_VAR match_opcode = 201 match_parameter2 = 8 END
+	LPF DELETE_EFFECT INT_VAR match_opcode = 201 match_parameter2 = 9 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 7 parameter2 = 8 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 7 parameter2 = 9 END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 201 parameter1 = 21 END
+//	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 328 parameter2 = 108 END
+// GSD is too strong, don't represent it as SS
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 321 parameter1 = 0 parameter2 = 0 STR_VAR resource = ~spwi522~ insert = ~first~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 321 parameter1 = 0 parameter2 = 0 STR_VAR resource = ~spwi318~ insert = ~first~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 206 parameter1 = 0 parameter2 = 0 STR_VAR resource = ~spwi318~ insert = ~last~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 206 parameter1 = 0 parameter2 = 0 STR_VAR resource = ~spwi522~ insert = ~last~ END
+	PATCH_IF FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+	  LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 101 parameter2 = 58 END
+	  PATCH_IF NOT GAME_IS ~iwdee~ BEGIN
+		LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 267 parameter1 = 14056 parameter2 = 0 END
+	  END
+	  PATCH_IF GAME_IS ~iwdee~ BEGIN
+		LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 267 parameter1 = 35499 parameter2 = 0 END
+	  END
+	END
+ END
+END
+//____________________________________________________________________________________
+
+// create magic attack subspell_______________________________________________________
+//
+COPY_EXISTING ~SPCL213.SPL~ ~override/d5mbrsub.spl~ 
+	SAY NAME1 ~~
+	SAY UNIDENTIFIED_DESC ~~
+	WRITE_ASCII 0x10 0
+//	WRITE_LONG 0x10 0
+//	WRITE_LONG 0x14 0
+	WRITE_SHORT 0x1c 1
+	WRITE_SHORT 0x22 0
+	WRITE_BYTE 0x25 1
+	WRITE_BYTE 0x27 0
+	WRITE_LONG 0x34 8
+	LPF DELETE_EFFECT END
+	LPF ALTER_SPELL_HEADER INT_VAR header_type = 3 location = 2 target = 1 range = 60 speed = 0 min_level = 1 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 21 target = 2 power = 8 parameter1 = 0 parameter2 = 0 timing = 0 duration = 0 END
+//____________________________________________________________________________________
+
+// modify spell shield________________________________________________________________
+//
+ACTION_IF FILE_EXISTS_IN_GAME ~spwi519.spl~ BEGIN
+  COPY_EXISTING ~spwi519.spl~ ~override~
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 206 STR_VAR resource = ~d5mbrsub~ END
+END
+//____________________________________________________________________________________
+
+// modify spell thrust________________________________________________________________
+//
+ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ BEGIN
+ ACTION_IF FILE_EXISTS_IN_GAME ~spwi321.spl~ BEGIN
+  COPY_EXISTING ~spwi321.spl~ ~override~
+	SAY UNIDENTIFIED_DESC @1061
+ END
+ ACTION_IF FILE_EXISTS_IN_GAME ~spwi321b.spl~ BEGIN
+  COPY_EXISTING ~spwi321b.spl~ ~override~
+	LPF DELETE_EFFECT END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 2 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5mbrsub~ END
+ END
+END
+
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ BEGIN
+ ACTION_IF FILE_EXISTS_IN_GAME ~spwi321.spl~ BEGIN
+  COPY_EXISTING ~spwi321.spl~ ~override~
+	SAY UNIDENTIFIED_DESC @1061
+	LPF DELETE_EFFECT END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 2 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5mbrsub~ END
+ END
+END
+//____________________________________________________________________________________
+
+// modify secret word_________________________________________________________________
+//
+ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ BEGIN
+ ACTION_IF FILE_EXISTS_IN_GAME ~spwi419.spl~ BEGIN
+  COPY_EXISTING ~spwi419.spl~ ~override~
+	SAY UNIDENTIFIED_DESC @1071
+ END
+ ACTION_IF FILE_EXISTS_IN_GAME ~spwi419b.spl~ BEGIN
+  COPY_EXISTING ~spwi419b.spl~ ~override~
+	LPF DELETE_EFFECT END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 2 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5mbrsub~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 2 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5mbrsub~ END
+ END
+END
+
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ BEGIN
+ ACTION_IF FILE_EXISTS_IN_GAME ~spwi419.spl~ BEGIN
+  COPY_EXISTING ~spwi419.spl~ ~override~
+	SAY UNIDENTIFIED_DESC @1071
+	LPF DELETE_EFFECT END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 2 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5mbrsub~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 2 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5mbrsub~ END
+ END
+END
+//____________________________________________________________________________________
+
+// modify pierce magic________________________________________________________________
+//
+// need to figure out how to apply MR reduction
+//
+ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ BEGIN
+ ACTION_IF FILE_EXISTS_IN_GAME ~spwi608.spl~ BEGIN
+  COPY_EXISTING ~spwi608.spl~ ~override~
+	SAY UNIDENTIFIED_DESC @1081
+ END
+ ACTION_IF FILE_EXISTS_IN_GAME ~spwi608b.spl~ BEGIN
+  COPY_EXISTING ~spwi608b.spl~ ~override~
+	LPF DELETE_EFFECT INT_VAR match_opcode = 230 END
+	LPF DELETE_EFFECT INT_VAR match_opcode = 142 END
+	LPF DELETE_EFFECT INT_VAR match_opcode = 215 END
+	LPF DELETE_EFFECT INT_VAR match_opcode = 174 END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 2 parameter1 = 0 parameter2 = 1 timing = 4 duration = 2 STR_VAR resource = ~d5mbrsub~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 2 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5mbrsub~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 2 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5mbrsub~ END
+ END
+END
+
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ BEGIN
+ ACTION_IF FILE_EXISTS_IN_GAME ~spwi608.spl~ BEGIN
+  COPY_EXISTING ~spwi608.spl~ ~override~
+	SAY UNIDENTIFIED_DESC @1081
+	LPF DELETE_EFFECT INT_VAR match_opcode = 230 END
+	LPF DELETE_EFFECT INT_VAR match_opcode = 142 END
+	LPF DELETE_EFFECT INT_VAR match_opcode = 215 END
+	LPF DELETE_EFFECT INT_VAR match_opcode = 174 END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 2 parameter1 = 0 parameter2 = 1 timing = 4 duration = 2 STR_VAR resource = ~d5mbrsub~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 2 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5mbrsub~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 2 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5mbrsub~ END
+ END
+END
+//____________________________________________________________________________________
+
+/*
+// modify ruby ray____________________________________________________________________
+//
+// acts normally
+//
+
+//____________________________________________________________________________________
+
+// modify pierce shield_______________________________________________________________
+//
+// acts normally
+//
+
+//____________________________________________________________________________________
+
+// modify spellstrike(?)_________________________________________________________________
+//
+
+//____________________________________________________________________________________
+*/
+
+// modify remove magic________________________________________________________________
+//
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+  ACTION_FOR_EACH dispel_spell IN ~spwi302~ ~sppr303~ ~spwi326~ ~spwi051~ ~spcl231~ ~spin112~ ~spin662~ ~spin703~ ~spin866~ ~sw2h10dm~ ~potn33~ ~qdshna4~ BEGIN
+	ACTION_IF FILE_EXISTS_IN_GAME ~%dispel_spell%.spl~ BEGIN
+	  COPY_EXISTING ~%dispel_spell%.spl~ ~override~
+		LPF ALTER_EFFECT INT_VAR power = 8 END
+	END
+  END
+END
+//____________________________________________________________________________________
+
+// modify breach______________________________________________________________________
+//
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ BEGIN
+ ACTION_IF FILE_EXISTS_IN_GAME ~spwi513.spl~ BEGIN
+  COPY_EXISTING ~spwi513.spl~ ~override~
+	WRITE_BYTE 0x27 0
+ END
+END
+//____________________________________________________________________________________
+
+// define what is breachable__________________________________________________________
+//
+COPY ~Magic_Battles_Revised/data/d5sectyp.2da~ ~override~
+  READ_2DA_ENTRIES_NOW ~r2en_sectypes~ 2
+  FOR (row = 1; row < r2en_sectypes; row += 1) BEGIN
+	READ_2DA_ENTRY_FORMER ~r2en_sectypes~ row 0 buff_spell
+	READ_2DA_ENTRY_FORMER ~r2en_sectypes~ row 1 sectype
+	SET spell_num = (IDS_OF_SYMBOL (~spell~ ~%buff_spell%~))
+	PATCH_IF spell_num > 0 BEGIN
+	  SNPRINT 1 spell_type ~%spell_num%~
+	  SNPRINT (0 - 3) type_num ~%spell_num%~
+	  PATCH_IF spell_type = 1 BEGIN
+		SPRINT spell_res ~sppr%type_num%~
+	  END
+	  PATCH_IF spell_type = 2 BEGIN
+		SPRINT spell_res ~spwi%type_num%~
+	  END
+	  PATCH_IF spell_type = 3 BEGIN
+		SPRINT spell_res ~spin%type_num%~
+	  END
+	  PATCH_IF spell_type = 4 BEGIN
+		SPRINT spell_res ~spcl%type_num%~
+	  END
+	  PATCH_IF FILE_EXISTS_IN_GAME ~%spell_res%.spl~ BEGIN
+		TEXT_SPRINT $d5_sectype_array(~%spell_res%~) ~%sectype%~
+	  END
+	END
+  END
+BUT_ONLY
+
+ACTION_PHP_EACH d5_sectype_array AS spl => type BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~%spl%.spl~ BEGIN
+	COPY_EXISTING ~%spl%.spl~ ~override~
+		WRITE_BYTE 0x27 %type%
+	BUT_ONLY
+  END
+END
+
+INCLUDE ~Magic_Battles_Revised/data/MBR_settings.ini~
+
+ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ BEGIN
+ COPY_EXISTING ~spwi513b.spl~ ~override~
+  PATCH_IF breach_combat_protections = 0 BEGIN
+	LPF DELETE_EFFECT INT_VAR match_opcode = 221 match_parameter2 = 7 END
+  END
+  PATCH_IF breach_specific_protections = 0 BEGIN
+	LPF DELETE_EFFECT INT_VAR match_opcode = 221 match_parameter2 = 2 END
+  END
+  PATCH_IF breach_combination_protections = 1 BEGIN
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 221 target = 2 power = 5 parameter1 = 9 parameter2 = 12 timing = 1 END
+  END
+  PATCH_IF breach_combat_protections = 1 BEGIN
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 221 target = 2 power = 5 parameter1 = 9 parameter2 = 13 timing = 1 END
+  END
+END
+
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ BEGIN
+ COPY_EXISTING ~spwi513.spl~ ~override~
+  PATCH_IF breach_combat_protections = 0 BEGIN
+	LPF DELETE_EFFECT INT_VAR match_opcode = 221 match_parameter2 = 7 END
+  END
+  PATCH_IF breach_specific_protections = 0 BEGIN
+	LPF DELETE_EFFECT INT_VAR match_opcode = 221 match_parameter2 = 2 END
+  END
+  PATCH_IF breach_combination_protections = 1 BEGIN
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 221 target = 2 power = 5 parameter1 = 9 parameter2 = 12 timing = 1 END
+  END
+  PATCH_IF breach_combat_protections = 1 BEGIN
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 221 target = 2 power = 5 parameter1 = 9 parameter2 = 13 timing = 1 END
+  END
+END
+//____________________________________________________________________________________
+
+END
