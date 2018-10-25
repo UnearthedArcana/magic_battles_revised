@@ -36,7 +36,6 @@ ACTION_FOR_EACH msd IN ~spwi318~ ~spra302~ BEGIN
 	END
 
 COPY_EXISTING ~spwi318.spl~ ~override/spwi406.spl~
-COPY_EXISTING ~spra302.spl~ ~override/spwi406.spl~
 COPY_EXISTING ~spra302.spl~ ~override/spwm125.spl~
 			  ~spra302.spl~ ~override/spwm126.spl~
 			  ~spra302.spl~ ~override/spin920.spl~
@@ -48,6 +47,7 @@ END
 //
 ACTION_IF FILE_EXISTS_IN_GAME ~spwi618.spl~ BEGIN
   COPY_EXISTING ~spwi618.spl~ ~override/spwi522.spl~
+				~spwi618.spl~ ~override~
 				~spin710.spl~ ~override~
 	PATCH_IF MOD_IS_INSTALLED ~spell_rev.tp2~ ~55~ BEGIN
 	  SAY UNIDENTIFIED_DESC @1021
@@ -62,7 +62,6 @@ ACTION_IF FILE_EXISTS_IN_GAME ~spwi618.spl~ BEGIN
 	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 7 parameter2 = 9 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 201 parameter1 = 14 END
 	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 328 parameter2 = 108 END
-	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 328 parameter2 = 108 END
 // disable the above line for SCS v32
 	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 321 parameter1 = 0 parameter2 = 0 STR_VAR resource = ~spwi318~ insert = ~first~ END
 	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 206 parameter1 = 0 parameter2 = 0 STR_VAR resource = ~spwi318~ insert = ~last~ END
@@ -76,8 +75,25 @@ ACTION_IF FILE_EXISTS_IN_GAME ~spwi618.spl~ BEGIN
 	  END
 	END
 
-  COPY_EXISTING ~spin710.spl~ ~override/spwi406.spl~
+//  COPY_EXISTING ~spin710.spl~ ~override/spwi406.spl~
 END
+
+ACTION_IF FILE_EXISTS_IN_GAME ~amul25.spl~ BEGIN
+  COPY_EXISTING ~amul25.spl~ ~override~
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 201 parameter1 = 14 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 321 parameter1 = 0 parameter2 = 0 STR_VAR resource = ~spwi318~ insert = ~first~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 206 parameter1 = 0 parameter2 = 0 STR_VAR resource = ~spwi318~ insert = ~last~ END
+	PATCH_IF FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+	  LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 101 parameter2 = 58 END
+	  PATCH_IF NOT GAME_IS ~iwdee~ BEGIN
+		LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 267 parameter1 = 14056 parameter2 = 0 END
+	  END
+	  PATCH_IF GAME_IS ~iwdee~ BEGIN
+		LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 201 match_parameter2 = 4 opcode = 267 parameter1 = 35499 parameter2 = 0 END
+	  END
+	END
+END
+
 
 // modify greater deflection__________________________________________________________
 //
@@ -562,22 +578,6 @@ END
 
 INCLUDE ~Magic_Battles_Revised/data/MBR_settings.ini~
 
-ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ BEGIN
- COPY_EXISTING ~spwi513b.spl~ ~override~
-  PATCH_IF breach_combat_protections = 0 BEGIN
-	LPF DELETE_EFFECT INT_VAR match_opcode = 221 match_parameter2 = 7 END
-  END
-  PATCH_IF breach_specific_protections = 0 BEGIN
-	LPF DELETE_EFFECT INT_VAR match_opcode = 221 match_parameter2 = 2 END
-  END
-  PATCH_IF breach_combination_protections = 1 BEGIN
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 221 target = 2 power = 5 parameter1 = 9 parameter2 = 12 timing = 1 END
-  END
-  PATCH_IF breach_combat_protections = 1 BEGIN
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 221 target = 2 power = 5 parameter1 = 9 parameter2 = 13 timing = 1 END
-  END
-END
-
 ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ BEGIN
  COPY_EXISTING ~spwi513.spl~ ~override~
   PATCH_IF breach_combat_protections = 0 BEGIN
@@ -593,6 +593,37 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ BEGIN
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 221 target = 2 power = 5 parameter1 = 9 parameter2 = 13 timing = 1 END
   END
 END
+
+ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ BEGIN
+ COPY_EXISTING ~spwi513b.spl~ ~override~
+  PATCH_IF breach_combat_protections = 0 BEGIN
+	LPF DELETE_EFFECT INT_VAR match_opcode = 221 match_parameter2 = 7 END
+  END
+  PATCH_IF breach_specific_protections = 0 BEGIN
+	LPF DELETE_EFFECT INT_VAR match_opcode = 221 match_parameter2 = 2 END
+  END
+  PATCH_IF breach_combination_protections = 1 BEGIN
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 221 target = 2 power = 5 parameter1 = 9 parameter2 = 12 timing = 1 END
+  END
+  PATCH_IF breach_combat_protections = 1 BEGIN
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 221 target = 2 power = 5 parameter1 = 9 parameter2 = 13 timing = 1 END
+  END
+END
 //____________________________________________________________________________________
 
+/*
+// modify wand of spell striking______________________________________________________
+//
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ BEGIN
+wand18.itm
+LPF ALTER_EFFECT opcode 230 => 146 resource spwi608
 END
+ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ BEGIN
+wand18.itm
+LPF ALTER_EFFECT opcode 146 resource wand18b => spwi608
+END
+//____________________________________________________________________________________
+*/
+
+END
+
