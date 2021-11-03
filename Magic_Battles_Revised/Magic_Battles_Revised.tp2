@@ -1,15 +1,48 @@
-BACKUP ~Magic_Battles_Revised/backup~
-AUTHOR ~SubtleD~
+BACKUP ~better_spell_battles/backup~
+AUTHOR ~subtledoc~
+VERSION ~0.1~ 
 
-VERSION ~v0.2~
+ALWAYS
 
-LANGUAGE
-  ~English~
-  ~english~
-  ~Magic_Battles_Revised/language/english/setup.tra~
+// nothing yet
+	
+END
+
+/* Language Settings */
+AUTO_TRA ~better_spell_battles/lang/%s~
+LANGUAGE ~English~ ~english~ ~better_spell_battles/lang/english/setup.tra~ 
 
 
 BEGIN @10
+DESIGNATED 10
 
-INCLUDE ~Magic_Battles_Revised/lib/MBR.tpa~
-LAF mbr END
+REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee eet iwdee~) @1
+
+COPY_EXISTING ~sw1h04.itm~ ~override/d5__spl_visuals.d5~ // detection for this component 
+
+INCLUDE ~better_spell_battles/MBR_settings.ini~
+
+INCLUDE ~better_spell_battles/lib/MBR.tpa~
+
+LAF mbr 
+  INT_VAR 
+    msd_block = %minor_deflection_levels_blocked% 
+    sd_block = %spell_deflection_levels_blocked% 
+    gsd_block = %greater_deflection_levels_blocked% 
+    sota_block = %shield_of_the_archons_levels_blocked% 
+    st_lvl = %spell_thrust_level% 
+    attack_delay = %spell_attack_delay% 
+    globe_bypass = %dispel_bypass_globes% 
+    friendly_dispel = %party_friendly_dispel%
+    breachy_remove = %mini_breach_remove%
+    breachy_dispel = %mini_breach_dispel%
+    breach_combat = %breach_combat_protections%
+    breach_spec = %breach_specific_protections%
+    breach_combi = %breach_combination_protections%
+    breach_noncomb = %breach_noncombat_protections%
+END
+
+
+//____________________________________________________________________________________
+
+
