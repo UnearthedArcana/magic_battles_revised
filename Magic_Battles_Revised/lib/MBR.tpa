@@ -864,11 +864,16 @@ IF_EXISTS BUT_ONLY
 
 COPY ~%MOD_FOLDER%/data/spl/d5disrem.spl~ ~override~
 
-ACTION_FOR_EACH rm_spl IN ~spwi302~ ~rr#wi302~ ~ohbwi302~ ~staf11a~ BEGIN
+ACTION_IF !(FILE_EXISTS_IN_GAME ~a^dispe2.spl~) BEGIN
+ ACTION_FOR_EACH rm_spl IN ~spwi302~ ~rr#wi302~ ~ohbwi302~ ~staf11a~ BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~%rm_spl%.spl~) BEGIN
     COPY ~%MOD_FOLDER%/data/spl/%rm_spl%.spl~ ~override~
       SAY UNIDENTIFIED_DESC @12302
 	  READ_SHORT 0x1c spl_typ
+      PATCH_IF (breachy_remove = 0) BEGIN
+        LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 146 STR_VAR match_resource = ~d5disrem~ resource = ~d5dispel~ END
+        WRITE_LONG 0x50 %og_rm_desc_string%
+      END      
       PATCH_IF (FILE_EXISTS_IN_GAME ~spwi513c.spl~) BEGIN
         LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 146 STR_VAR insert = ~last~ resource = ~spwi513c~ END
       END
@@ -882,6 +887,30 @@ ACTION_FOR_EACH rm_spl IN ~spwi302~ ~rr#wi302~ ~ohbwi302~ ~staf11a~ BEGIN
 	    LPF ADD_SPELL_CFEFFECT INT_VAR opcode = 146 target = 1 parameter1 = 1 parameter2 = 1 timing = 0 STR_VAR resource = ~DW#BLHDA~ END
 	  END
   END
+ END
+END
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~a^dispe2.spl~) BEGIN
+ ACTION_FOR_EACH rm_spl IN ~spwi302~ ~rr#wi302~ ~ohbwi302~ ~staf11a~ BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%rm_spl%.spl~) BEGIN
+    ACTION_IF (breachy_remove = 1) BEGIN
+      COPY ~%MOD_FOLDER%/data/spl/%rm_spl%.spl~ ~override~
+        SAY UNIDENTIFIED_DESC @12302
+        LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 146 STR_VAR match_resource = ~a^dispe2~ resource = ~d5disrem~ END
+	    PATCH_IF (FILE_EXISTS_IN_GAME ~d5__psionics.d5~) BEGIN
+	      PATCH_IF (spl_typ = 1) BEGIN
+	        LPF ADD_SPELL_CFEFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5psaura~ END
+	      END
+	    END
+	    PATCH_IF (MOD_IS_INSTALLED ~stratagems.tp2~ ~6000~) BEGIN	// or (FILE_EXISTS_IN_GAME ~DW#BLHDA.spl~)
+	      LPF ADD_SPELL_CFEFFECT INT_VAR opcode = 321 target = 1 parameter1 = 0 parameter2 = 0 timing = 0 STR_VAR resource = ~DW#HDANI~ END
+	      LPF ADD_SPELL_CFEFFECT INT_VAR opcode = 146 target = 1 parameter1 = 1 parameter2 = 1 timing = 0 STR_VAR resource = ~DW#BLHDA~ END
+	    END
+    END
+    ACTION_IF (breachy_remove = 0) BEGIN
+      COPY_EXISTING ~%rm_spl%.spl~ ~override~
+        LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 146 STR_VAR match_resource = ~a^dispe2~ resource = ~d5dispel~ END
+    END
 END
 
 
@@ -897,6 +926,15 @@ ACTION_IF !(FILE_EXISTS_IN_GAME ~a^dispe2.spl~) BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~%dm_spl%.spl~) BEGIN
     COPY ~%MOD_FOLDER%/data/spl/%dm_spl%.spl~ ~override~
 	  READ_SHORT 0x1c spl_typ
+      PATCH_IF (friendly_dispel = 0) BEGIN
+        PATCH_IF (breachy_dispel = 0) BEGIN
+          WRITE_LONG 0x50 %og_dm_desc_string%
+        END      
+        PATCH_IF (breachy_dispel = 1) BEGIN
+          LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 146 STR_VAR match_resource = ~d5dispel~ resource = ~d5disrem~ END
+          SAY UNIDENTIFIED_DESC @12326
+        END      
+      END
       PATCH_IF (friendly_dispel = 1) BEGIN
         LPF ALTER_SPELL_HEADER INT_VAR projectile = 177 END
         PATCH_IF (breachy_dispel = 0) BEGIN
@@ -905,15 +943,6 @@ ACTION_IF !(FILE_EXISTS_IN_GAME ~a^dispe2.spl~) BEGIN
         PATCH_IF (breachy_dispel = 1) BEGIN
           LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 146 STR_VAR match_resource = ~d5dispel~ resource = ~d5disrem~ END
           SAY UNIDENTIFIED_DESC @12302
-        END      
-      END
-      PATCH_IF (friendly_dispel = 0) BEGIN
-        PATCH_IF (breachy_dispel = 0) BEGIN
-          WRITE_LONG 0x50 %og_dm_desc_string%
-        END      
-        PATCH_IF (breachy_dispel = 1) BEGIN
-          LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 146 STR_VAR match_resource = ~d5dispel~ resource = ~d5disrem~ END
-          SAY UNIDENTIFIED_DESC @12326
         END      
       END
       PATCH_IF (FILE_EXISTS_IN_GAME ~spwi513c.spl~) BEGIN
