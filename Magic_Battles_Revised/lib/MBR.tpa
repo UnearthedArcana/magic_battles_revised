@@ -932,13 +932,14 @@ ACTION_IF !(FILE_EXISTS_IN_GAME ~a^dispe2.spl~) BEGIN
  END
 END
 
-ACTION_IF !(FILE_EXISTS_IN_GAME ~a^dispe2.spl~) BEGIN
+ACTION_IF (FILE_EXISTS_IN_GAME ~a^dispe2.spl~) BEGIN
  ACTION_FOR_EACH dm_spl IN ~spwi326~ ~sppr303~ ~rr#wi326~ ~spcl231~ ~spin112~ ~spin703~ ~spin866~ ~sw2h10dm~ ~tg#rc08~ ~tg#rc42~ BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~%dm_spl%.spl~) BEGIN
     COPY_EXISTING ~%dm_spl%.spl~ ~override~
       PATCH_IF (friendly_dispel = 1) BEGIN
         LPF ALTER_SPELL_HEADER INT_VAR projectile = 177 END
         PATCH_IF (breachy_dispel = 0) BEGIN
+          LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 146 STR_VAR match_resource = ~a^dispe2~ resource = ~d5dispel~ END
           WRITE_LONG 0x50 %og_rm_desc_string%
         END      
         PATCH_IF (breachy_dispel = 1) BEGIN
@@ -947,6 +948,10 @@ ACTION_IF !(FILE_EXISTS_IN_GAME ~a^dispe2.spl~) BEGIN
         END      
       END
       PATCH_IF (friendly_dispel = 0) BEGIN
+        PATCH_IF (breachy_dispel = 0) BEGIN
+          LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 146 STR_VAR match_resource = ~a^dispe2~ resource = ~d5dispel~ END
+          WRITE_LONG 0x50 %og_dm_desc_string%
+        END      
         PATCH_IF (breachy_dispel = 1) BEGIN
           LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 146 STR_VAR match_resource = ~a^dispe2~ resource = ~d5disrem~ END
           SAY UNIDENTIFIED_DESC @12326
