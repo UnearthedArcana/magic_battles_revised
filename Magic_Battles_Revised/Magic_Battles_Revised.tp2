@@ -1,6 +1,6 @@
-BACKUP ~better_spell_battles/backup~
+BACKUP ~magic_battles_revised/backup~
 AUTHOR ~subtledoc~
-VERSION ~0.1~ 
+VERSION ~1.03~ 
 
 ALWAYS
 
@@ -9,8 +9,8 @@ ALWAYS
 END
 
 /* Language Settings */
-AUTO_TRA ~better_spell_battles/lang/%s~
-LANGUAGE ~English~ ~english~ ~better_spell_battles/lang/english/setup.tra~ 
+AUTO_TRA ~magic_battles_revised/lang/%s~
+LANGUAGE ~English~ ~english~ ~magic_battles_revised/lang/english/setup.tra~ 
 
 
 BEGIN @10
@@ -18,11 +18,12 @@ DESIGNATED 10
 
 REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee eet iwdee~) @1
 
-COPY_EXISTING ~sw1h04.itm~ ~override/d5__spl_visuals.d5~ // detection for this component 
+COPY_EXISTING ~sw1h04.itm~ ~override/d5__mbr.d5~
+COPY_EXISTING ~sw1h04.itm~ ~override/d5__spl_visuals.d5~
 
-INCLUDE ~better_spell_battles/MBR_settings.ini~
+INCLUDE ~magic_battles_revised/lib/MBR.tpa~
 
-INCLUDE ~better_spell_battles/lib/MBR.tpa~
+INCLUDE ~magic_battles_revised/MBR_settings.ini~
 
 LAF mbr 
   INT_VAR 
