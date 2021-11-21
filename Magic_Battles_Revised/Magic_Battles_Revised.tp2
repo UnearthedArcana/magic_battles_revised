@@ -11,6 +11,7 @@ END
 /* Language Settings */
 AUTO_TRA ~magic_battles_revised/lang/%s~
 LANGUAGE ~English~ ~english~ ~magic_battles_revised/lang/english/setup.tra~ 
+LANGUAGE ~French~ ~french~ ~magic_battles_revised/lang/french/setup.tra~ 
 
 
 BEGIN @10

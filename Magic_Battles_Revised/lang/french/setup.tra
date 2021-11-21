@@ -1,0 +1,364 @@
+@1 = ~~
+@2 = ~~
+@3 = ~~
+@10 = ~Révision des batailles magiques~
+
+// ***** need DM, friendly DM, RM
+//
+@117011 = ~Bouclier des archontes~
+//
+@11701 = ~Bouclier des archontes
+Niveau : 7
+École : Abjuration
+Sphère : Protection 
+Portée : jeteur du sort
+Durée : 1 tour
+Temps d'incantation : 1
+Zone d'effet : jeteur du sort
+Jet de sauvegarde : aucun
+
+Ce puissant sort d'Abjuration absorbe et consomme les sorts lancés contre le prêtre. Il affecte un total de 30 niveaux de sorts, ce qui signifie qu'il peut absorber 30 sorts de niveau 1 ou 4 sorts de niveau 9 ou plus. Le fait d'avoir un seul niveau de sort de protection restant signifie qu'un sort de niveau 1 sera absorbé, mais aussi un sort de niveau 9. Ce sort protégera aussi le lanceur contre Dissipation de la magie, Délivrance de la magie et Brèche, pour la durée du sort.
+
+Ce sort absorbe les sorts provenant de parchemins et les compétences semblables aux sorts, mais ne protégera pas contre les sorts de zone stationnaires (comme Nuage mortel ou Nuage puant).
+
+Bouclier des archontes bloquera les attaques magiques de niveau inférieur à 5, telles qu'Annulation des protections ou Mot secret. Un sort de niveau 6 ou plus, comme Perce-magie, est nécessaire pour le dissiper.
+~
+//
+//
+@123021 = ~Délivrance de la magie~
+//
+@12302 = ~Délivrance de la magie
+
+Niveau : 3
+École : Abjuration
+Portée : champ de vision du magicien
+Durée : spécial
+Temps d'incantation : 3
+Zone d'effet : rayon de 4,5 mètres
+Jet de sauvegarde : aucun
+
+Ce sort d'abjuration essaie d'annuler les protections de combat magiques et les protections spécifiques sur les ennemis dans la zone d'effet. Il dissipera une protection de combat et une protection spécifique pour chaque cible. La résistance à la magie des cibles est ignorée pour ce sort.
+
+Les protections spécifiques dissipées par ce sort incluent Bouclier du chaos, Ordres chaotiques, Prévention de la mort, Égide divine, Émotion : espoir, Exaltation, Action libre, Égide divine supérieure, Citadelle de l'âme, Bouclier majeur du chaos, Esprit vierge, Rétrovision, Protection contre l'acide, Protection contre le froid, Protection contre la divination, Protection contre l'électricité, Protection contre l'énergie, Protection contre le feu, Protection contre l'énergie magique, Protection contre les éléments, Résistance aux éléments, Résistance à la terreur, Protection de l'esprit, Lucidité spirituelle, Protection anti-tempêtes, Bouclier tempête et Endurance infaillible.
+
+Les protections de combat dissipées par Délivrance de la magie incluent Immunité absolue, Armure de la foi, Peau d'écorce, Cercle d'ossements, Manteau de ténèbres, Émotion : courage, Bouclier de feu, Peau de fer, Armure, Gaine acide de Mestil, Moment de prescience, Miroir physique, Protection contre les armes magiques, Protection contre les projectiles, Protection contre les armes non-magiques, Bouclier, Armure spirituelle et Peau de pierre.
+~ // Cloak of Darkness from fnp, Divine Protection from SCS, Mirrored Eyes & physical Mirror from d5 tweaks
+//
+//
+@123261 = ~Dissipation de la magie~
+//
+@12326 = ~Dissipation de la magie
+
+Niveau : 3
+École : Abjuration
+Portée : champ de vision du magicien
+Durée : spécial
+Temps d'incantation : 3
+Zone d'effet : rayon de 4,5 mètres
+Jet de sauvegarde : aucun
+
+Ce sort d'abjuration essaie d'annuler les protections de combat magiques et les protections spécifiques sur toutes les personnes dans la zone d'effet. Il dissipera une protection de combat et une protection spécifique pour chaque cible. La résistance à la magie des cibles est ignorée pour ce sort.
+
+Les protections spécifiques dissipées par ce sort incluent Bouclier du chaos, Ordres chaotiques, Prévention de la mort, Égide divine, Émotion : espoir, Exaltation, Action libre, Égide divine supérieure, Citadelle de l'âme, Bouclier majeur du chaos, Esprit vierge, Rétrovision, Protection contre l'acide, Protection contre le froid, Protection contre la divination, Protection contre l'électricité, Protection contre l'énergie, Protection contre le feu, Protection contre l'énergie magique, Protection contre les éléments, Résistance aux éléments, Résistance à la terreur, Protection de l'esprit, Lucidité spirituelle, Protection anti-tempêtes, Bouclier tempête et Endurance infaillible.
+
+Les protections de combat dissipées par Délivrance de la magie incluent Immunité absolue, Armure de la foi, Peau d'écorce, Cercle d'ossements, Manteau de ténèbres, Émotion : courage, Bouclier de feu, Peau de fer, Armure, Gaine acide de Mestil, Moment de prescience, Miroir physique, Protection contre les armes magiques, Protection contre les projectiles, Protection contre les armes non-magiques, Bouclier, Armure spirituelle et Peau de pierre.
+~
+//
+//
+@123181 = ~Déviation de sorts mineure~
+//
+@12318 = ~Déviation de sorts mineure
+Niveau : 3
+Ecole : Abjuration
+Portée : jeteur du sort
+Durée : 5 tours
+Temps d'incantation : 3
+Zone d'effet : jeteur du sort
+Jet de sauvegarde : aucun
+
+Ce sort d'abjuration absorbe tous les sorts lancés contre le magicien. Il affecte un total de 4 niveaux de sorts, ce qui signifie qu'il peut absorber 4 sorts de niveau 1 ou un sort de niveau 4. Le fait d'avoir un seul niveau de sort de protection restant signifie qu'un sort de niveau 1 sera absorbé, mais aussi un sort de niveau 9. Ce sort protégera aussi le lanceur contre Dissipation de la magie, Délivrance de la magie et Brèche, pour la durée du sort.
+
+Ce sort absorbe les sorts provenant de parchemins et les compétences semblables aux sorts, mais ne protégera pas contre les sorts de zone stationnaires (comme Nuage mortel ou Nuage puant).
+~
+//
+//
+@123211 = ~Annulation des protections~
+//
+@12321 = ~Annulation des protections
+Niveau : 1
+Ecole : Abjuration
+Portée : longue
+Durée : instantanée
+Temps d'incantation : 3
+Zone d'effet : rayon de 1,5 mètres
+Jet de sauvegarde : aucun
+
+Ce sort annule une protection magique sur tous les ennemis se trouvant dans la zone d'effet. La protection magique dissipée sera toujours celle de niveau le plus élevé. Si deux protections ou plus sont de même niveau, le sort dissipé sera choisi aléatoirement. La résistance magique des créatures affectées est ignorée.
+
+Parmi les sorts concernés par l'Annulation des protections, on trouve : Déviation de sorts mineure, Globe mineur d'invulnérabilité, Déviation des sorts, Globe d'invulnérabilité, Déviation de sorts majeure, Écran de dissipation et Bouclier de sorts.
+
+Ce sort n'a aucun effet sur une cible protégée par un Piège à sorts ou un Bouclier des archontes.
+~
+//
+//
+@124061 = ~Globe mineur d'invulnérabilité~
+//
+@12406 = ~Globe mineur d'invulnérabilité
+Niveau : 4
+Ecole : Abjuration
+Portée : jeteur du sort
+Durée : 1 round / niveau
+Temps d'incantation : 4
+Zone d'effet : jeteur du sort
+Jet de sauvegarde : aucun
+
+Ce sort crée autour du lanceur de sorts une sphère magique faiblement phosphorescente qui empêche tous les sorts de premier, second et troisième niveau d'y pénétrer (i.e. : la zone d'effet de ces sorts n'inclut pas l'espace du Globe mineur d'invulnérabilité). Cela comprend les capacités innées et les effets des dispositifs. N'importe quel sort peut cependant être jeté depuis l'intérieur de la sphère sans pour autant affecter le Globe mineur d'invulnérabilité. Les sorts de 4ème niveau et plus ne sont pas affectés par ce sort.
+~
+//
+//
+@124191 = ~Mot secret~
+//
+@12419 = ~Mot secret
+Niveau : 4
+École : Enchantement
+Portée : longue
+Durée : instantanée
+Temps d'incantation : 1
+Zone d'effet : 1 créature
+Jet de sauvegarde : aucun
+
+Lorsqu'un Mot secret est prononcé, deux couches de protection magique seront dissipées sur la cible. Ainsi, il supprimera une Déviation des sorts et une Déviation de sorts mineure, ou une Protection de sorts mineure et un Globe d'invulnérabilité, ainsi de suite. La protection magique dissipée sera toujours celle de niveau le plus élevé (en n'affectant les sorts de protection que jusqu'au niveau 7). La résistance magique de la cible est ignorée.
+
+De plus, un Mot secret possède de propriété obsédante de « ver d'oreille » qui peut désorienter la victime et rendre le lancer de sorts plus difficile. L'effet est similaire à celui de Surdité et impose un risque d'échec de 50 % au lancer de sorts pendant 1 round sur échec à un jet de sauvegarde contre les sorts. Cet effet peut se produire indifféremment de toute déviation de sorts ou d'immunité aux sorts basées sur le niveau de sort que la cible pourrait posséder.
+
+Les protections de sorts qui sont dissipées par Mot secret sont entre autres : Déviation de sorts mineure, Globe d'invulnérabilité Mineure, Déviation des sorts, Globe d'invulnérabilité et Déviation de sorts majeure.
+
+Mot secret ne dissipera aucune protection de sorts sur une cible protégée par un Piège à sorts ou un Bouclier des archontes. Un Bouclier de sorts empêchera Mot secret de dissiper des protections de sorts, mais le Bouclier de sorts lui-même sera intégralement consommé.
+~
+//
+//
+@125131 = ~Brèche~
+// 
+@12513 = ~Brèche
+Niveau : 5
+École : Abjuration
+Portée : Longue
+Durée : instantanée
+Temps d'incantation : 5
+Zone d'effet : 1 créature
+Jet de Sauvegarde : aucun
+
+Quand ce sort est lancé sur une créature, il dissipe toutes les protections spécifiques et de combat qu'elle possède. Si la cible possède une résistance à la magie, elle n'affecte pas ce sort.
+
+Les protections spécifiques dissipées par Brèche incluent : Bouclier du chaos, Résistance à la terreur, Protection de l'esprit, Lucidité spirituelle, Ordres chaotiques, Prévention de la mort, Égide divine, Émotion : espoir, Exaltation, Action libre, Égide divine supérieure, Citadelle de l'âme, Esprit vierge, Rétrovision, Protection contre l'acide, Protection contre le froid, Protection contre le feu, Protection contre l'électricité, Protection contre les éléments, Résistance aux éléments, Protection contre la divination, Protection contre l'énergie, Protection contre l'énergie magique, Protection anti-tempêtes et Bouclier tempête.
+
+Les protections de combat dissipées par Brèche incluent : Armure, Bouclier, Armure spirituelle, Armure de la foi, Peau d'écorce, Peau de pierre, Peau de fer, Protection contre les armes normales, Protection contre les armes magiques, Protection contre les projectiles normaux, Miroir physique, Cercle d'ossements, Manteau de ténèbres, Émotion : courage, Bouclier de feu, Gaine acide de Mestil, Moment de prescience et Immunité absolue.~
+//
+//
+@125191 = ~Bouclier de sort~
+//
+@12519 = ~Bouclier de sort
+Niveau : 5
+École : Abjuration
+Portée : 0
+Durée : 5 tours
+Temps d'incantation : 5
+Zone d'effet : Lanceur
+Jet de sauvegarde : aucun
+
+Le lanceur devient immunisé contre le prochain sort d'attaque magique dirigé contre lui. Si l'un de ces sorts est lancé, il est absorbé par le Bouclier contre les sorts, ce qui l'élimine. Sinon, le sort fonctionne jusqu'à expiration.
+
+Les sorts contre lesquels le Bouclier protège le mage incluent : Annulation des protections, Mot secret, Perce magie, Rayon rubis d'inversion, Fouet protecteur de Khelben et Perce-bouclier.~
+//
+//
+@125221 = ~Déviation de sorts~
+//
+@12522 = ~Déviation de sorts
+Niveau : 5
+École : Abjuration
+Portée : jeteur du sort
+Durée : 5 tours
+Temps d'incantation : 5
+Zone d'effet : jeteur du sort
+Jet de sauvegarde : aucun
+
+Ce sort d'abjuration absorbe tous les sorts lancés contre le magicien. Il affecte un total de 9 niveaux de sorts, ce qui signifie qu'il peut absorber 9 sorts de niveau 1 ou un sort de niveau 9. Le fait d'avoir un seul niveau de sort de protection restant signifie qu'un sort de niveau 1 sera absorbé, mais aussi un sort de niveau 9. Ce sort protégera aussi le lanceur contre Dissipation de la magie, Délivrance de la magie et Brèche, pour la durée du sort.
+
+Lancer ce sort créera automatiquement une Déviation de sorts mineure (le sort de niveau 3) en supplément de la Déviation des sorts. Cette Déviation de sorts mineure n'offrira pas de niveaux de sorts de protection en plus. Les niveaux de sorts de protection de la Déviation de sorts mineure seront consommés en même temps que ceux du sort principal, mais les deux effets de protection fonctionneront de façon indépendante quand le lanceur est soumis à des attaques magiques comme Annulation des protections ou Perce-magie.
+
+Ce sort absorbe les sorts provenant de parchemins et les compétences semblables aux sorts, mais ne protégera pas contre les sorts de zone stationnaires (comme Nuage mortel ou Nuage puant).
+~
+//
+//
+@126021 = ~Globe d'invulnérabilité~
+//
+@12602 = ~Globe d'invulnérabilité
+Niveau : 6
+Ecole : Abjuration
+Portée : jeteur du sort
+Durée : 1 round / niveau
+Temps d'incantation : 6
+Zone d'effet : jeteur du sort
+Jet de sauvegarde : aucun
+
+
+Ce sort crée autour du lanceur de sorts une sphère magique faiblement phosphorescente qui empêche tous les sorts de niveau 1, 2, 3 et 4 d'y pénétrer (i.e. : la zone d'effet de ces sorts n'inclut pas l'espace du Globe d'invulnérabilité). Cela comprend les capacités innées et les effets des dispositifs. N'importe quel sort peut cependant être jeté depuis l'intérieur de la sphère sans pour autant affecter le Globe d'invulnérabilité. Les sorts de 5ème niveau et plus ne sont pas affectés par ce sort. Le globe peut être détruit par des attaques magiques abjuratives comme Perce-magie ou Anéantissement des défenses.
+~
+//
+//
+@126081 = ~Perce-magie~
+//
+@12608 = ~Perce-magie
+Niveau : 6
+Ecole : Abjuration
+Portée : longue
+Durée : spéciale
+Temps d'incantation : 6
+Zone d'effet : 1 créature
+Jet de sauvegarde : aucun
+
+Ce sort a trois effets majeurs sur sa cible. Tout d'abord, la résistance à la magie de la créature est temporairement annulée. Cette résistance reste abaissée à zéro durant 2 rounds. Les éventuelles déviations de sorts ou immunités magiques basées sur le niveau de sorts sont ignorées pour cette annulation de résistance à la magie.
+
+Ensuite, ce sort détruit un éventuel Bouclier de sort sur la cible.
+
+Enfin, ce sort dissipe deux couches de protection de sorts sur la créature, comme le ferait Mot secret. Ainsi, il dissipera Déviation de sorts majeure et Déviation des Sorts, ou alors Déviation des sorts et Globe d'invulnérabilité, etc. La protection magique dissipée sera toujours celle de niveau le plus élevé (en n'affectant les sorts de protection que jusqu'au niveau 7). La résistance magique de la cible est ignorée.
+
+Les protections de sorts qui sont dissipées par Perce-magie sont entre autres : Déviation de sorts mineure, Globe d'invulnérabilité Mineure, Déviation des sorts, Globe d'invulnérabilité, Déviation de sorts majeure et Bouclier des archontes. 
+
+Perce-magie ne dissipera aucune protection de sorts sur une cible protégée par un Piège à sorts.
+~
+//
+//
+@127011 = ~Déviation de sorts majeure~
+//
+@12701 = ~Déviation de sorts majeure
+Niveau : 7
+École : Abjuration
+Portée : jeteur du sort
+Durée : 5 tours
+Temps d'incantation : 7
+Zone d'effet : jeteur du sort
+Jet de sauvegarde : aucun
+
+Ce sort d'abjuration absorbe tous les sorts lancés contre le magicien. Il affecte un total de 18 niveaux de sorts, ce qui signifie qu'il peut absorber 18 sorts de niveau 1 ou 2 sorts de niveau 9 ou plus. Le fait d'avoir un seul niveau de sort de protection restant signifie qu'un sort de niveau 1 sera absorbé, mais aussi un sort de niveau 9. Ce sort protégera aussi le lanceur contre Dissipation de la magie, Délivrance de la magie et Brèche, pour la durée du sort.
+
+Lancer ce sort créera automatiquement une Déviation de sorts mineure et une Déviation des sorts en supplément de la Déviation de sorts majeure. Les effets de déviation supplémentaire n'offriront pas de niveaux de sorts de protection en plus. Les niveaux de sorts de protection des déviations additionnelles seront consommés en même temps que ceux du sort principal, mais les trois effets de protection fonctionneront de façon indépendante quand le lanceur est soumis à des attaques magiques comme Annulation des protections ou Perce-magie.
+
+Ce sort absorbe les sorts provenant de parchemins et les compétences semblables aux sorts, mais ne protégera pas contre les sorts de zone stationnaires (comme Nuage mortel ou Nuage puant).
+~
+//
+//
+@127041 = ~Rayon rubis d'inversion~
+//
+@12704 = ~Rayon rubis d'inversion
+Niveau : 7
+Ecole : Altération
+Portée : longue
+Durée : instantanée
+Temps d'incantation : 5
+Zone d'effet : 1 créature
+Jet de sauvegarde : aucun
+
+Lorsque ce sort est lancé, trois couches de protection magique seront dissipées sur la cible. Ainsi, il supprimera une Déviation des sorts majeure, une Déviation des sorts et une Déviation de sorts mineure, ou une Déviation des sorts majeure, une Déviation des sorts et un Globe d'invulnérabilité, ainsi de suite. La protection magique dissipée sera toujours celle de niveau le plus élevé (en n'affectant les sorts de protection que jusqu'au niveau 7). La résistance magique de la cible est ignorée.
+
+De plus, Rayon rubis d'inversion est capable de détruire un Piège à sorts, le plus puissant sort de protection. Dans ce cas, le Rayon rubis d’inversion est consommé et ne supprime pas d'autres protections de sorts.
+
+Enfin, le rayon brûlant de lumière du Rayon rubis d’inversion peut aveugler la cible pendant un round, cet effet se produisant indépendamment des protections de sorts sur la cible. Un jet de sauvegarde contre les sorts avec une pénalité de -2 évitera cet effet.
+
+Les sorts de protection magique dissipés par le Rayon rubis d'inversion sont : Déviation de sorts mineure, Globe mineur d'invulnérabilité, Déviation de sorts, Globe d'invulnérabilité, Déviation de sorts majeure, Bouclier des archontes et Piège à sorts.
+
+Un Bouclier de sorts empêchera Rayon rubis d'inversion de dissiper des protections de sorts, mais le Bouclier de sorts lui-même sera intégralement consommé.
+~
+//
+//
+@127051 = ~Fouet protecteur de Khelben~
+//
+@12705 = ~Fouet protecteur de Khelben
+Niveau : 7
+École : Évocation
+Portée : moyenne
+Durée : 3 rounds
+Temps d'incantation : 7
+Zone d'effet : 1 créature
+Jet de sauvegarde : aucun
+
+
+Lorsque ce sort est lancé, deux couches de protection magique seront dissipées sur la cible, comme le ferait Mot secret. Ainsi, il supprimera une Déviation des sorts et une Déviation de sorts mineure, ou une Protection de sorts mineure et un Globe d'invulnérabilité, ainsi de suite.
+
+Par la suite, cet effet sera répété deux autres fois, une fois le round suivant, puis une fois un round plus tard. À chaque fois, le Fouet Protecteur de Khelben dissipera deux protections de sorts ou un Bouclier de sorts. Chaque round suivant, jusqu'à expiration du sort, deux autres couches de protection de sorts ou un Bouclier de sorts seront supprimés. Le sort dissipé en premier sera toujours celui de plus haut niveau (en n'affectant les sorts de protection que jusqu'au niveau 8). La résistance magique de la cible est ignorée.
+
+
+Les sorts de protection magique dissipés par Fouet protecteur de Khelben sont : Déviation de sorts mineure, Globe mineur d'invulnérabilité, Déviation de sorts, Globe d'invulnérabilité et Déviation de sorts majeure.
+
+Un Bouclier de sorts bloquera une application du Fouet Protecteur, mais le Bouclier de sorts lui-même sera intégralement consommé et les rounds suivants, le Fouet protecteur de Khelben s'appliquera normalement.
+~
+//
+//
+@128051 = ~Perce-bouclier~
+//
+@12805 = ~Perce-bouclier
+Niveau : 8
+École : Abjuration
+Portée : Longue
+Durée : Spéciale
+Temps d'incantation : 8
+Zone d'effet : 1 créature
+Jet de Sauvegarde : aucun
+
+Quand ce sort est lancé sur une créature, deux effets se produiront. D'abord, ce sort détruira un Bouclier de sorts protégeant la cible.
+
+Ensuite, comme Rayon rubis d'inversion, ce sort dissipera soit trois couches de protections de sort sur la créature, soit un Piège à sort.
+
+Les protections de sorts dissipées par Perce-bouclier incluent : Déviation de sorts mineure, Globe mineur d'invulnérabilité, Déviation des sorts, Globe d'invulnérabilité, Déviation de sorts majeure, Bouclier des archontes et Piège à sorts.
+
+Le Bouclier de sorts ne protège pas des effets de Perce-bouclier.
+~
+//
+//
+@129021 = ~Piège à sorts~
+//
+@12902 = ~Piège à sorts
+Niveau : 9
+Ecole : Abjuration
+Portée : jeteur du sort
+Durée : 1 tour
+Temps d'incantation : 1 round
+Zone d'effet : jeteur du sort
+Jet de sauvegarde : aucun
+
+Ce très puissant sort d'abjuration combine deux pouvoirs. D'abord, il agit comme une protection de sorts, permettant au lanceur de sorts d'ignorer les effets de *tout* sort lancé sur lui ou à sa proximité. De ce point de vue, il peut être vu comme une Coquille antimagique à sens unique ou encore une version ultime de Globe d'invulnérabilité qui bloque les effets de tous les sorts des niveaux 1 à 9. Ensuite, le Piège à sorts se comporte comme un puissant Bouclier de sorts, empêchant les attaques magiques comme Annulation des protections ou Perce-magie de dissiper les protections magiques plus faibles du lanceur. 
+
+Un Piège à sorts doit être dissipé par un Rayon rubis d'inversion ou un Perce-bouclier avant que les ennemis puissent commencer à dissiper les autres protections (comme Déviation des sorts).
+~
+//
+//
+@129031 = ~Anéantissement des défenses~
+//
+@12903 = ~Anéantissement des défenses
+Niveau : 9
+Ecole : Abjuration
+Portée : longue
+Durée : spéciale
+Temps d'incantation : 5
+Zone d'effet : 1 créature
+Jet de sauvegarde : aucun
+
+Ce sort annule toutes les protections de sorts et boucliers de sorts, quel qu’en soit le niveau, sur la cible. De plus, la cible est soumise à un échec des sorts de 100 % le premier round, suivie d'un un échec de 50 % le second round. La résistance magique des créatures affectées est ignorée.
+
+Les sorts de protection magique dissipés par l'Anéantissement des défenses sont : Déviation de sorts mineure, Globe mineur d'invulnérabilité, Déviation de sorts, Globe d'invulnérabilité, Déviation de sorts majeure, Bouclier des archontes, Piège à sorts et Bouclier de sorts.
+~
+//
+//
+@123101 = ~Protection contre la divination~
+@123102 = ~Protection contre la divination
+
+Niveau : 3
+École : Abjuration
+Portée : toucher
+Durée : 8 heures
+Temps d'incantation : 3
+Zone d'effet : 1 créature
+Jet de sauvegarde : aucun
+
+Une fois ce sort lancé, si la cible devient invisible, sanctuarisée ou se cache, les sorts de divination comme Purge d'invisibilité, Oracle, Vision véritable et la capacité de Détection des illusions d'un voleur ne permettront pas de dissiper l'invisibilité ou de mettre à jour la créature cachée. (Quelqu'un capable de percevoir les créatures invisibles pourra cependant détecter et cibler le bénéficiaire de ce sort)
+~ // unmodified from d5 tweaks it seems
