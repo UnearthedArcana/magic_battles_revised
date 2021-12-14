@@ -476,7 +476,7 @@ COPY ~%MOD_FOLDER%/data/bam-vvc/mybluorb.bam~ ~override/dkbluorb.bam~
 COPY ~%MOD_FOLDER%/data/bam-vvc/mybluorb.vvc~ ~override/dkbluorb.vvc~
   WRITE_ASCII 0x08 ~dkbluorb~ #8
 
-ACTION_FOR_EACH ss_spl IN ~spwi519~ ~dwsw519~ ~zpwi519~ BEGIN
+ACTION_FOR_EACH ss_spl IN ~spwi519~ ~dwsw519~ ~dw#isss~ ~zpwi519~ BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~%ss_spl%.spl~) BEGIN
     COPY ~%MOD_FOLDER%/data/spl/%ss_spl%.spl~ ~override~
       PATCH_IF (VARIABLE_IS_SET %spellshield_sectype%) BEGIN
@@ -911,6 +911,8 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~a^dispe2.spl~) BEGIN
       COPY_EXISTING ~%rm_spl%.spl~ ~override~
         LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 146 STR_VAR match_resource = ~a^dispe2~ resource = ~d5dispel~ END
     END
+  END
+ END
 END
 
 
