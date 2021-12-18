@@ -5,6 +5,7 @@
 
 // ***** need DM, friendly DM, RM
 
+@14701 = ~Shield of the Archons~
 @11701 = ~Shield of the Archons
 Level: 7
 School: Abjuration
@@ -23,6 +24,7 @@ Shield of the Archons will block magic attacks under 5th level, such as Spell Th
 ~
 //
 //
+@15302 = ~Remove Magic~
 @12302 = ~Remove Magic
 Level: 3
 School: Abjuration
@@ -40,6 +42,7 @@ The combat protection spells dispelled by Remove Magic include Absolute Immunity
 ~
 //
 //
+@15326 = ~Dispel Magic~
 @12326 = ~Dispel Magic
 Level: 3
 School: Abjuration
@@ -57,6 +60,7 @@ The combat protection spells dispelled by Dispel Magic include Absolute Immunity
 ~
 //
 //
+@15318 = ~Minor Spell Deflection~
 @12318 = ~Minor Spell Deflection
 Level: 3
 School: Abjuration
@@ -72,6 +76,7 @@ This spell absorbs magic effects cast from most scrolls and innate spell-like ab
 ~
 //
 //
+@15321 = ~Spell Thrust~
 @12321 = ~Spell Thrust
 Level: 1
 School: Abjuration
@@ -89,6 +94,7 @@ This spell has no effect on a target protected by Spell Trap or Shield of the Ar
 ~
 //
 //
+@15406 = ~Minor Globe of Invulnerability~
 @12406 = ~Minor Globe of Invulnerability
 Level: 4
 School: Abjuration
@@ -102,6 +108,7 @@ This spell creates a faintly shimmering magical sphere around the caster that pr
 ~
 //
 //
+@15419 = ~Secret Word~
 @12419 = ~Secret Word
 Level: 4
 School: Enchantment
@@ -121,6 +128,10 @@ Secret Word will not dispel any spell protections on a target protected by Spell
 ~
 //
 //
+@15519 = ~Spell Shield~
+//
+//
+@15522 = ~Spell Deflection~
 @12522 = ~Spell Deflection
 Level: 5
 School: Abjuration
@@ -138,6 +149,7 @@ This spell absorbs magic effects cast from most scrolls and innate spell-like ab
 ~
 //
 //
+@15602 = ~Globe of Invulnerability~
 @12602 = ~Globe of Invulnerability
 Level: 6
 School: Abjuration
@@ -151,6 +163,7 @@ This spell creates an immobile, faintly shimmering magical sphere around the cas
 ~
 //
 //
+@15608 = ~Pierce Magic~
 @12608 = ~Pierce Magic
 Level: 6
 School: Abjuration
@@ -170,6 +183,7 @@ The spell protections dispelled by Pierce Magic include: Minor Spell Deflection,
 ~
 //
 //
+@15701 = ~Greater Spell Deflection~
 @12701 = ~Greater Spell Deflection
 Level: 7
 School: Abjuration
@@ -191,6 +205,7 @@ This spell absorbs spells cast from scrolls and innate spell-like abilities, but
 ~
 //
 //
+@15704 = ~Ruby Ray of Reversal~
 @12704 = ~Ruby Ray of Reversal
 Level: 7
 School: Alteration
@@ -212,6 +227,7 @@ A Spell Shield will block Ruby Ray of Reversal from dispelling any protections, 
 ~
 //
 //
+@15705 = ~Khelben's Warding Whip~
 @12705 = ~Khelben's Warding Whip
 Level: 7
 School: Evocation
@@ -231,6 +247,7 @@ A Spell Shield will block one application of the Warding Whip, though the Spell 
 ~
 //
 //
+@15805 = ~Pierce Shield~
 @12805 = ~Pierce Shield
 Level: 8
 School: Abjuration
@@ -248,6 +265,7 @@ The spell protections dispelled by Pierce Shield include: Minor Spell Deflection
 ~
 //
 //
+@15902 = ~Spell Trap~
 @12902 = ~Spell Trap
 Level: 9
 School: Abjuration
@@ -261,6 +279,7 @@ This immensely powerful abjuration combines two capabilities. First, it acts as 
 ~
 //
 //
+@15903 = ~Spellstrike~
 @12903 = ~Spellstrike
 Level: 9
 School: Abjuration

@@ -12,23 +12,23 @@ DEFINE_ACTION_FUNCTION mbr INT_VAR msd_block = 4 sd_block = 9 gsd_block = 18 sot
 
 // ***** need to add breach/spellshield sectypes if not already there
 
-ADD_SECTYPE ~breach~ ~~
+ADD_SECTYPE ~BREACH~ ~~
 
-ADD_SECTYPE ~spellshield~ ~~
+ADD_SECTYPE ~SPELLSHIELD~ ~~
 
 // then:
 
 COPY_EXISTING ~msectype.2da~ ~override~
   COUNT_2DA_ROWS 2 rows
   FOR (row = 1; row < rows; ++row) BEGIN
-    READ_2DA_ENTRY row 0 2 sec_typ
-    PATCH_IF (~%sec_typ%~ STRING_EQUAL_CASE ~breach~) BEGIN
+    READ_2DA_ENTRY row 0 1 sec_typ
+    PATCH_IF (~%sec_typ%~ STRING_EQUAL_CASE ~BREACH~) BEGIN
       SET breach_sectype = row
     END
-    PATCH_IF (~%sec_typ%~ STRING_EQUAL_CASE ~spellshield~) BEGIN
+    PATCH_IF (~%sec_typ%~ STRING_EQUAL_CASE ~SPELLSHIELD~) BEGIN
       SET spellshield_sectype = row
     END
-    PATCH_IF (~%sec_typ%~ STRING_EQUAL_CASE ~k1#Dispel~) BEGIN
+    PATCH_IF (~%sec_typ%~ STRING_EQUAL_CASE ~K1#DISPEL~) BEGIN
       SET k1_dispel_sectype = row
     END
   END
@@ -236,6 +236,7 @@ COPY ~%MOD_FOLDER%/data/bam-vvc/swirlw.vvc~ ~override/dkswrlw.vvc~
 ACTION_FOR_EACH msd_spl IN ~spwi318~ ~spra302~ ~d5_radfl~ ~dwsw318~ BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~%msd_spl%.spl~) BEGIN
     COPY ~%MOD_FOLDER%/data/spl/%msd_spl%.spl~ ~override~
+	  SAY NAME1 @15318
       SAY UNIDENTIFIED_DESC @12318
       READ_SHORT 0x1c spl_typ
       READ_LONG 0x34 spl_lvl
@@ -284,6 +285,7 @@ COPY ~%MOD_FOLDER%/data/bam-vvc/swirlb.vvc~ ~override/dkswrlb.vvc~
 ACTION_FOR_EACH sd_spl IN ~spwi522~ ~spwi618~ ~dwsw522~ ~dwsw618~ BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~%sd_spl%.spl~) BEGIN
     COPY ~%MOD_FOLDER%/data/spl/%sd_spl%.spl~ ~override~
+	  SAY NAME1 @15522
       SAY UNIDENTIFIED_DESC @12522
       READ_SHORT 0x1c spl_typ
       READ_LONG 0x34 spl_lvl
@@ -335,6 +337,7 @@ COPY ~%MOD_FOLDER%/data/bam-vvc/swirly.vvc~ ~override/dkswrly.vvc~
 ACTION_FOR_EACH gsd_spl IN ~spwi701~ ~dw#mlstn~ ~dwsw701~ BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~%gsd_spl%.spl~) BEGIN
     COPY ~%MOD_FOLDER%/data/spl/%gsd_spl%.spl~ ~override~
+	  SAY NAME1 @15701
       SAY UNIDENTIFIED_DESC @12701
       READ_SHORT 0x1c spl_typ
       READ_LONG 0x34 spl_lvl
@@ -383,6 +386,7 @@ COPY ~%MOD_FOLDER%/data/bam-vvc/swirlp.vvc~ ~override/dkswrlp.vvc~
 ACTION_FOR_EACH trap_spl IN ~spwi902~ ~dwsw902~ BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~%trap_spl%.spl~) BEGIN
     COPY ~%MOD_FOLDER%/data/spl/%trap_spl%.spl~ ~override~
+	  SAY NAME1 @15902
       SAY UNIDENTIFIED_DESC @12902
       READ_SHORT 0x1c spl_typ
       READ_LONG 0x34 spl_lvl
@@ -423,6 +427,7 @@ COPY ~%MOD_FOLDER%/data/bam-vvc/swirlt.vvc~ ~override/dkswrlt.vvc~
 ACTION_FOR_EACH sota_spl IN ~sppr701~ ~qdfv_701~ ~dgarchon~ ~dwsp701~ BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~%sota_spl%.spl~) BEGIN
     COPY ~%MOD_FOLDER%/data/spl/%sd_spl%.spl~ ~override~
+	  SAY NAME1 @14701
       SAY UNIDENTIFIED_DESC @11701
       READ_SHORT 0x1c spl_typ
       READ_LONG 0x34 spl_lvl
@@ -479,8 +484,9 @@ COPY ~%MOD_FOLDER%/data/bam-vvc/mybluorb.vvc~ ~override/dkbluorb.vvc~
 ACTION_FOR_EACH ss_spl IN ~spwi519~ ~dwsw519~ ~dw#isss~ ~zpwi519~ BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~%ss_spl%.spl~) BEGIN
     COPY ~%MOD_FOLDER%/data/spl/%ss_spl%.spl~ ~override~
+	  SAY NAME1 @15519
       PATCH_IF (VARIABLE_IS_SET %spellshield_sectype%) BEGIN
-	    WRITE_BYTE 0x270 %spellshield_sectype%
+	    WRITE_BYTE 0x27 %spellshield_sectype%
 	  END
       PATCH_IF !(FILE_EXISTS_IN_GAME ~dw#w519a.spl~) BEGIN
         LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 142 opcode = 215 parameter1 = 0 parameter2 = 1 resist_dispel = 0 STR_VAR resource = ~dkbluorb~ END
@@ -518,6 +524,7 @@ END
 // spell thrust
 
 COPY ~%MOD_FOLDER%/data/spl/spwi321.spl~ ~override~
+  SAY NAME1 @15321
   SAY UNIDENTIFIED_DESC @12321
   READ_SHORT 0x1c spl_typ
   PATCH_IF (FILE_EXISTS_IN_GAME ~d5__psionics.d5~) BEGIN
@@ -554,6 +561,7 @@ COPY ~%MOD_FOLDER%/data/spl/spwi321c.spl~ ~override~
 // secret word
 
 COPY ~%MOD_FOLDER%/data/spl/spwi419.spl~ ~override~
+  SAY NAME1 @15419
   SAY UNIDENTIFIED_DESC @12419
   READ_SHORT 0x1c spl_typ
   PATCH_IF (FILE_EXISTS_IN_GAME ~d5__psionics.d5~) BEGIN
@@ -581,6 +589,7 @@ COPY ~%MOD_FOLDER%/data/spl/spwi419c.spl~ ~override~
 // pierce magic
 
 COPY ~%MOD_FOLDER%/data/spl/spwi608.spl~ ~override~
+  SAY NAME1 @15608
   SAY UNIDENTIFIED_DESC @12608
   READ_SHORT 0x1c spl_typ
   PATCH_IF (FILE_EXISTS_IN_GAME ~d5__psionics.d5~) BEGIN
@@ -608,6 +617,7 @@ COPY ~%MOD_FOLDER%/data/spl/spwi608c.spl~ ~override~
 // ruby ray
 
 COPY ~%MOD_FOLDER%/data/spl/spwi704.spl~ ~override~
+  SAY NAME1 @15704
   SAY UNIDENTIFIED_DESC @12704
   READ_SHORT 0x1c spl_typ
   PATCH_IF (FILE_EXISTS_IN_GAME ~d5__psionics.d5~) BEGIN
@@ -635,6 +645,7 @@ COPY ~%MOD_FOLDER%/data/spl/spwi704c.spl~ ~override~
 // warding whip
 
 COPY ~%MOD_FOLDER%/data/spl/spwi705.spl~ ~override~
+  SAY NAME1 @15705
   SAY UNIDENTIFIED_DESC @12705
   READ_SHORT 0x1c spl_typ
   PATCH_IF (FILE_EXISTS_IN_GAME ~d5__psionics.d5~) BEGIN
@@ -662,6 +673,7 @@ COPY ~%MOD_FOLDER%/data/spl/spwi705c.spl~ ~override~
 // pierce shield
 
 COPY ~%MOD_FOLDER%/data/spl/spwi805.spl~ ~override~
+  SAY NAME1 @15805
   SAY UNIDENTIFIED_DESC @12805
   READ_SHORT 0x1c spl_typ
   PATCH_IF (FILE_EXISTS_IN_GAME ~d5__bards.d5~) BEGIN
@@ -693,6 +705,7 @@ COPY ~%MOD_FOLDER%/data/spl/spwi805c.spl~ ~override~
 // spellstrike
 
 COPY ~%MOD_FOLDER%/data/spl/spwi903.spl~ ~override~
+  SAY NAME1 @15903
   SAY UNIDENTIFIED_DESC @12903
   READ_SHORT 0x1c spl_typ
   PATCH_IF (FILE_EXISTS_IN_GAME ~d5__bards.d5~) BEGIN
@@ -868,6 +881,7 @@ ACTION_IF !(FILE_EXISTS_IN_GAME ~a^dispe2.spl~) BEGIN
  ACTION_FOR_EACH rm_spl IN ~spwi302~ ~rr#wi302~ ~ohbwi302~ ~staf11a~ BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~%rm_spl%.spl~) BEGIN
     COPY ~%MOD_FOLDER%/data/spl/%rm_spl%.spl~ ~override~
+	  SAY NAME1 @15302
       SAY UNIDENTIFIED_DESC @12302
 	  READ_SHORT 0x1c spl_typ
       PATCH_IF (breachy_remove = 0) BEGIN
@@ -895,6 +909,7 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~a^dispe2.spl~) BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~%rm_spl%.spl~) BEGIN
     ACTION_IF (breachy_remove = 1) BEGIN
       COPY ~%MOD_FOLDER%/data/spl/%rm_spl%.spl~ ~override~
+	    SAY NAME1 @15302
         SAY UNIDENTIFIED_DESC @12302
         LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 146 STR_VAR match_resource = ~a^dispe2~ resource = ~d5disrem~ END
 	    PATCH_IF (FILE_EXISTS_IN_GAME ~d5__psionics.d5~) BEGIN
@@ -927,6 +942,7 @@ ACTION_IF !(FILE_EXISTS_IN_GAME ~a^dispe2.spl~) BEGIN
  ACTION_FOR_EACH dm_spl IN ~spwi326~ ~sppr303~ ~rr#wi326~ ~spcl231~ ~spin112~ ~spin703~ ~spin866~ ~sw2h10dm~ ~tg#rc08~ ~tg#rc42~ BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~%dm_spl%.spl~) BEGIN
     COPY ~%MOD_FOLDER%/data/spl/%dm_spl%.spl~ ~override~
+	  SAY NAME1 @15326
 	  READ_SHORT 0x1c spl_typ
       PATCH_IF (friendly_dispel = 0) BEGIN
         PATCH_IF (breachy_dispel = 0) BEGIN
@@ -985,6 +1001,7 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~a^dispe2.spl~) BEGIN
         END      
         PATCH_IF (breachy_dispel = 1) BEGIN
           LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 146 STR_VAR match_resource = ~a^dispe2~ resource = ~d5disrem~ END
+		  SAY NAME1 @15326
           SAY UNIDENTIFIED_DESC @12326
         END      
       END
