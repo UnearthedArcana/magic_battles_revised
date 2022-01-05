@@ -5,6 +5,9 @@
 
 // ***** need DM, friendly DM, RM
 
+//
+@117011 = ~Shield of the Archons~
+//
 @11701 = ~Shield of the Archons
 Level: 7
 School: Abjuration
@@ -23,6 +26,8 @@ Shield of the Archons will block magic attacks under 5th level, such as Spell Th
 ~
 //
 //
+@123021 = ~Remove Magic~
+//
 @12302 = ~Remove Magic
 Level: 3
 School: Abjuration
@@ -39,6 +44,8 @@ The specific protection spells dispelled by Remove Magic include Chaos Shield, C
 The combat protection spells dispelled by Remove Magic include Absolute Immunity, Armor of Faith, Barkskin, Circle of Bones, Cloak of Darkness, Emotion, Courage, Fire Shield, Iron Skin, Mage Armor, Mestil's Acid Sheath, Moment of Prescience, Physical Mirror, Protection from Magical Weapons, Protection from Missiles, Protection from Normal Weapons, Shield, Spirit Armor, and Stoneskin.
 ~
 //
+//
+@123261 = ~Dispel Magic~
 //
 @12326 = ~Dispel Magic
 Level: 3
@@ -57,6 +64,8 @@ The combat protection spells dispelled by Dispel Magic include Absolute Immunity
 ~
 //
 //
+@123181 = ~Minor Spell Deflection~
+//
 @12318 = ~Minor Spell Deflection
 Level: 3
 School: Abjuration
@@ -71,6 +80,8 @@ This abjuration causes any spells directed at the caster to be absorbed and cons
 This spell absorbs magic effects cast from most scrolls and innate spell-like abilities, but will not protect against stationary area-effect spells such as Cloudkill or Stinking Cloud.
 ~
 //
+//
+@123211 = ~Spell Thrust~
 //
 @12321 = ~Spell Thrust
 Level: 1
@@ -89,6 +100,8 @@ This spell has no effect on a target protected by Spell Trap or Shield of the Ar
 ~
 //
 //
+@124061 = ~Minor Globe of Invulnerability~
+//
 @12406 = ~Minor Globe of Invulnerability
 Level: 4
 School: Abjuration
@@ -101,6 +114,8 @@ Saving Throw: None
 This spell creates a faintly shimmering magical sphere around the caster that prevents any 1st-, 2nd-, or 3rd-level spell effects from penetrating (i.e., the area of effect of any such spells does not include the area of the globe of invulnerability). This includes innate abilities and effects from devices. However, any type of spell can be cast out of the magical sphere, and these pass from the caster of the globe to their subject without affecting the globe. Fourth and higher level spells are not affected by the globe.
 ~
 //
+//
+@124191 = ~Secret Word~
 //
 @12419 = ~Secret Word
 Level: 4
@@ -121,6 +136,42 @@ Secret Word will not dispel any spell protections on a target protected by Spell
 ~
 //
 //
+@125131 = ~Breach~
+//
+@12513 = ~Breach
+Level: 5
+School: Abjuration
+Range: Long
+Duration: Instant
+Casting Time: 5
+Area of Effect: 1 creature
+Saving Throw: None
+
+When this spell is cast at a creature, it breaches and dispels all of the 'specific protections' and 'combat protections' on the target creature. The target's Magic Resistance, if any, does not affect this spell.
+
+The 'specific protections' dispelled by Breach include spells such as: Chaos Shield, Resist Fear, Spirit Ward, Spiritual Clarity, Chaotic Commands, Death Ward, Divine Protection, Emotion: Hope, Exaltation, Free Action, Impervious Sanctity of Mind, Mind Blank, Mirrored Eyes, Protection from Acid, Protection from Cold, Protection from Fire, Protection from Electricity, Protection from the Elements, Resist Elements, Protection from Divination, Protection from Energy, Protection from Magic Energy, Storm Shell, and Storm Shield. 
+
+The 'combat protections' dispelled by Breach include spells such as: Armor, Shield, Spirit Armor, Armor of Faith, Barkskin, Stoneskin, Iron Skin, Protection from Normal Weapons, Protection from Magical Weapons, Protection from Missiles, Physical Mirror, Circle of Bones, Cloak of Darkness, Emotion: Courage, Fire Shield, Acid Sheath, Moment of Prescience, and Absolute Immunity.~
+//
+//
+@125191 = ~Spell Shield~
+//
+@12519 = ~Spell Shield
+Level: 5
+School: Abjuration
+Range: Personal
+Duration: 5 turns
+Casting Time: 5
+Area of Effect: Caster
+Saving Throw: None
+
+When this spell is cast the wizard is protected from the next 'magic attack' spell that is used against <PRO_HIMHER>. If one of those spells is cast at the wizard this spell activates and absorbs the attack. However, this only works once as the Shell Shield is consumed in the process.
+
+The spells that Spell Shield protects the wizard from include: Spell Thrust, Secret Word, Pierce Magic, Ruby Ray, Warding Whip, and Pierce Shield.~
+//
+//
+@125221 = ~Spell Deflection~
+//
 @12522 = ~Spell Deflection
 Level: 5
 School: Abjuration
@@ -138,6 +189,8 @@ This spell absorbs magic effects cast from most scrolls and innate spell-like ab
 ~
 //
 //
+@126021 = ~Globe of Invulnerability~
+//
 @12602 = ~Globe of Invulnerability
 Level: 6
 School: Abjuration
@@ -150,6 +203,8 @@ Saving Throw: None
 This spell creates an immobile, faintly shimmering magical sphere around the caster that prevents any 1st-, 2nd-, 3rd- or 4th-level spell effects from penetrating (i.e., the area of effect of any such spells does not include the area of the globe of invulnerability). This includes innate abilities and effects from devices. However, any type of spell can be cast out of the magical sphere, and these pass from the caster of the globe to their subject without affecting the globe. Fifth and higher level spells are not affected by the globe. The globe can be brought down by abjurative forms of magical attack such as Pierce Magic and Spellstrike.
 ~
 //
+//
+@126081 = ~Pierce Magic~
 //
 @12608 = ~Pierce Magic
 Level: 6
@@ -166,9 +221,13 @@ Second, this spell will destroy a Spell Shield protecting the target.
 
 Third, this spell will dispel two layers of spell protections from the creature, similar to Secret Word. Thus, it will dispel Greater Spell Deflection and Spell Deflection; or Spell Deflection and Globe of Invulnerability; et cetera. This will always dispel the highest-level spell protections on the target (affecting up to 7th-level protection spells). Magic resistance does not affect this spell.
 
-The spell protections dispelled by Pierce Magic include: Minor Spell Deflection, Minor Globe of Invulnerability, Spell Deflection, Globe of Invulnerability, Greater Spell Deflection, and Shield of the Archons. The effects of Pierce Magic are not deterred by a Spell Shield. Pierce Magic will not dispel any spell protections on a target protected by Spell Trap.
+The spell protections dispelled by Pierce Magic include: Minor Spell Deflection, Minor Globe of Invulnerability, Spell Deflection, Globe of Invulnerability, Greater Spell Deflection, and Shield of the Archons. 
+
+The effects of Pierce Magic are not deterred by a Spell Shield. Pierce Magic will not dispel any spell protections on a target protected by Spell Trap.
 ~
 //
+//
+@127011 = ~Greater Spell Deflection~
 //
 @12701 = ~Greater Spell Deflection
 Level: 7
@@ -191,6 +250,8 @@ This spell absorbs spells cast from scrolls and innate spell-like abilities, but
 ~
 //
 //
+@127041 = ~Ruby Ray of Reversal~
+//
 @12704 = ~Ruby Ray of Reversal
 Level: 7
 School: Alteration
@@ -212,6 +273,8 @@ A Spell Shield will block Ruby Ray of Reversal from dispelling any protections, 
 ~
 //
 //
+@127051 = ~Khelben's Warding Whip~
+//
 @12705 = ~Khelben's Warding Whip
 Level: 7
 School: Evocation
@@ -231,6 +294,8 @@ A Spell Shield will block one application of the Warding Whip, though the Spell 
 ~
 //
 //
+@128051 = ~Pierce Shield~
+//
 @12805 = ~Pierce Shield
 Level: 8
 School: Abjuration
@@ -244,9 +309,13 @@ When this spell is cast upon a target creature there will be two effects. First,
 
 Second, similar to Ruby Ray of reversal, this spell will dispel either three layers of spell protections from the creature, or one Spell Trap. 
 
-The spell protections dispelled by Pierce Shield include: Minor Spell Deflection, Minor Globe of Invulnerability, Spell Deflection, Globe of Invulnerability, Greater Spell Deflection, Shield of the Archons, and Spell Trap. The effects of Pierce Shield are not deterred by a Spell Shield.
+The spell protections dispelled by Pierce Shield include: Minor Spell Deflection, Minor Globe of Invulnerability, Spell Deflection, Globe of Invulnerability, Greater Spell Deflection, Shield of the Archons, and Spell Trap. 
+
+The effects of Pierce Shield are not deterred by a Spell Shield.
 ~
 //
+//
+@129021 = ~Spell Trap~
 //
 @12902 = ~Spell Trap
 Level: 9
@@ -257,9 +326,11 @@ Casting Time: 1 round
 Area of Effect: Caster
 Saving Throw: None
 
-This immensely powerful abjuration combines two capabilities. First, it acts as a spell protection, allowing the caster to ignore the effects of *any* spells cast at or near <PRO_HIMHER>. In this regard it could be considered a one-way Anti-Magic Shell, or a supreme version of a Globe of Invulnerability, blocking all spell effects of levels one through nine. Second, the Spell Trap acts like a powerful Spell Shield, blocking magic attacks such as Spell Thrust or Pierce Magic from dispelling any of the caster's lesser spell protections. Only after the Spell trap is removed by a Ruby Ray of Reversal or Pierce Shield can enemies begin to remove other protections such as Spell Deflections.
+This immensely powerful abjuration combines two capabilities. First, it acts as a spell protection, allowing the caster to ignore the effects of *any* spells cast at or near <PRO_HIMHER>. In this regard it could be considered a one-way Anti-Magic Shell, or a supreme version of a Globe of Invulnerability, blocking all spell effects of levels one through nine. Second, the Spell Trap acts like a powerful Spell Shield, blocking magic attacks such as Spell Thrust or Pierce Magic from dispelling any of the caster's lesser spell protections. A Spell trap must be removed by a Ruby Ray of Reversal or Pierce Shield spell before enemies can begin to remove other, lesser protections such as Spell Deflections.
 ~
 //
+//
+@129031 = ~Spellstrike~
 //
 @12903 = ~Spellstrike
 Level: 9
