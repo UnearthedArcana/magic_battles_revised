@@ -348,7 +348,7 @@ The spell protections removed by Spellstrike are: Minor Spell Deflection, Minor 
 //
 //
 @123101 = ~Protection from Divination~
-@123102 = ~Protection from Divination
+@12310 = ~Protection from Divination
 Level: 3
 School: Abjuration
 Range: Touch
@@ -359,3 +359,7 @@ Saving Throw: None
 
 After casting this spell, if the target become invisible, sanctuaried, or otherwise hidden, divinations such as Invisibility Purge, Oracle, True Sight, and a thief's Detect Illusion ability will not be able to dispel the invisibility or reveal the hidden creature. (Someone who can sense invisible creatures will be able to detect and target the beneficiary of this spell, however.)
 ~
+//
+//
+@14550 = ~Anti-Magic Ray~
+@14992 = ~Anti-Magic Ray~
