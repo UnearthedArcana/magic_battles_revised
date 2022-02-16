@@ -1,0 +1,352 @@
+@1 = ~~
+@2 = ~~
+@3 = ~~
+@10 = ~Réviser les batailles magiques~
+
+
+@117011 = ~Bouclier des Archontes~
+@11701 = ~Bouclier des Archontes
+
+Niveau : 7
+École : Abjuration
+Sphère : Protection 
+Portée : jeteur du sort
+Durée : 1 tour
+Temps d'incantation : 1
+Zone d'effet : jeteur du sort
+Jet de sauvegarde : aucun
+
+Ce puissant sort d'Abjuration absorbe les sorts lancés contre le prêtre. Il peut absorber un total de 99 niveaux de sorts, soit, par exemple, 99 sorts de niveau 1 ou encore 11 sorts de niveau 9 ou plus. Quand il reste un niveau de sort de protection, cela signifie qu'il peut absorber un sort aussi bien de niveau 1 que de niveau 9. Ce sort immunisera aussi le lanceur contre la Dissipation de la Magie jusqu'à son terme.
+
+Ce sort absorbe les sorts provenant de parchemins et les compétences semblables aux sorts, mais ne protège pas contre les sorts de zone stationnaires (comme Nuage Mortel ou Nuage Puant).
+~
+//
+//
+//
+@123021 = ~Remove Magic~
+//
+@12302 = ~Remove Magic
+Level: 3
+School: Abjuration
+Range: Visual range of caster
+Duration: special
+Casting Time: 3
+Area of Effect: 15' radius
+Saving Throw: None
+
+This abjuration attempts to negate the magical combat protections and specific protections on enemies in the area of effect. It will dispel one combat protection and one specific protection from each such target. The targets' Magic Resistance, if any, does not affect this spell. 
+
+The specific protection spells dispelled by Remove Magic include Chaos Shield, Chaotic Commands, Death Ward, Divine Protection, Emotion: Hope, Exaltation, Free Action, Greater Divine Protection, Impervious Sanctity of Mind, Improved Chaos Shield, Mind Blank, Mirrored Eyes, Protection from Acid, Protection from Cold, Protection from Divination, Protection from Electricity, Protection from Energy, Protection from Fire, Protection from Magic Energy, Protection from the Elements, Resist Elements, Resist Fear, Spirit Ward, Spiritual Clarity, Storm Shell, Storm Shield, and Unfailing Endurance. 
+
+The combat protection spells dispelled by Remove Magic include Absolute Immunity, Armor of Faith, Barkskin, Circle of Bones, Cloak of Darkness, Emotion, Courage, Fire Shield, Iron Skin, Mage Armor, Mestil's Acid Sheath, Moment of Prescience, Physical Mirror, Protection from Magical Weapons, Protection from Missiles, Protection from Normal Weapons, Shield, Spirit Armor, and Stoneskin.
+~
+//
+//
+@123261 = ~Dispel Magic~
+//
+@12326 = ~Dispel Magic
+Level: 3
+School: Abjuration
+Range: Visual range of caster
+Duration: special
+Casting Time: 3
+Area of Effect: 15' radius
+Saving Throw: None
+
+This abjuration attempts to negate the magical combat protections and specific protections on everyone in the area of effect. It will dispel one combat protection and one specific protection from each such target. The targets' Magic Resistance, if any, does not affect this spell. 
+
+The specific protection spells dispelled by Dispel Magic include Chaos Shield, Chaotic Commands, Death Ward, Divine Protection, Emotion: Hope, Exaltation, Free Action, Greater Divine Protection, Impervious Sanctity of Mind, Improved Chaos Shield, Mind Blank, Mirrored Eyes, Protection from Acid, Protection from Cold, Protection from Divination, Protection from Electricity, Protection from Energy, Protection from Fire, Protection from Magic Energy, Protection from the Elements, Resist Elements, Resist Fear, Spirit Ward, Spiritual Clarity, Storm Shell, Storm Shield, and Unfailing Endurance. 
+
+The combat protection spells dispelled by Dispel Magic include Absolute Immunity, Armor of Faith, Barkskin, Circle of Bones, Cloak of Darkness, Emotion, Courage, Fire Shield, Iron Skin, Mage Armor, Mestil's Acid Sheath, Moment of Prescience, Physical Mirror, Protection from Magical Weapons, Protection from Missiles, Protection from Normal Weapons, Shield, Spirit Armor, and Stoneskin.
+~
+//
+//
+@123181 = ~Déviation de Sorts Mineure~
+@12318 = ~Déviation de Sorts Mineure
+
+Niveau : 3
+École : Abjuration
+Portée : jeteur du sort
+Durée : 5 tours
+Temps d'incantation : 3
+Zone d'effet : jeteur du sort
+Jet de sauvegarde : aucun
+
+Ce sort d'abjuration absorbe tous les sorts lancés contre le magicien. Il affecte un total de 4 niveaux de sorts, mais le fait d'avoir un seul niveau de protection signifie qu'un sort de niveau 1 sera absorbé, de même qu'un sort de niveau 9. Les sorts d'un niveau supérieur à 4 ne sont pas concernés. Ce sort ne protège pas le lanceur d'une Dissipation de la Magie, bien qu'il ne soit pas non plus dissipé par celle-ci.
+
+Ce sort absorbe les sorts provenant de parchemins et les compétences semblables aux sorts, mais ne protège pas contre les sorts de zone stationnaires (comme Nuage Mortel ou Nuage Puant).
+~
+//
+//
+@123211 = ~Annulation des Protections~
+@12321 = ~Annulation des Protections
+
+Niveau : 1
+École : Abjuration
+Portée : longue
+Durée : instantanée
+Temps d'incantation : 3
+Zone d'effet : rayon de 1,5 mètres
+Jet de sauvegarde : aucun
+
+Ce sort annule une protection magique sur tous les ennemis se trouvant dans la zone d'effet. La protection magique dissipée sera toujours celle de niveau le plus élevé. Si deux protections ou plus sont de même niveau, le sort dissipé sera choisi aléatoirement. La résistance magique des créatures affectées est ignorée.
+
+Les sorts concernés par l'Annulation des Protections incluent : Déviation de Sorts Mineure, Globe Mineur d'Invulnérabilité, Déviation des Sorts, Globe d'Invulnérabilité,Écran de Dissipation et Bouclier de Sort.
+
+Ce sort n'a aucun effet sur une cible protégée par Piège à Sorts ou Bouclier des Archontes.
+~
+//
+//
+@124061 = ~Globe Mineur d'Invulnérabilité~
+@12406 = ~Globe Mineur d'Invulnérabilité
+
+Niveau : 4
+École : Abjuration
+Portée : jeteur du sort
+Durée : 1 round / niveau 
+Temps d'incantation : 4 
+Zone d'effet : jeteur du sort
+Jet de sauvegarde : aucun
+
+Ce sort crée autour du lanceur de sorts une sphère magique faiblement phosphorescente qui empêche tous les sorts de premier, second et troisième niveau d'y pénétrer (i.e.  la zone d'effet de ces sorts n'inclut pas l'espace du Globe Mineur d'Invulnérabilité). Cela comprend les capacités innées et les effets des dispositifs. N'importe quel sort peut cependant être jeté depuis l'intérieur de la sphère sans pour autant affecter le Globe Mineur d'Invulnérabilité. Les sorts de 4ème niveau et plus ne sont pas affectés par ce sort.
+~
+//
+//
+@124191 = ~Mot Secret~
+@12419 = ~Mot Secret
+
+Niveau : 4
+École : Enchantement
+Portée : longue
+Durée : instantanée
+Temps d'incantation : 1
+Zone d'effet : 1 créature
+Jet de sauvegarde : aucun
+
+Lorsqu'un Mot Secret est prononcé, deux couches de protections magiques sont dissipées sur la cible. Ainsi, seront enlevés un sort de Déviation de Sorts et une Déviation de Sorts Mineure, ou une Déviation de Sorts Mineure et un Globe d'Invulnérabilité, etc. La protection magique dissipée sera toujours celle de niveau le plus élevé. Si deux protections ou plus sont du même niveau, le sort dissipé sera choisi aléatoirement. La résistance magique de la cible est ignorée.
+
+Les sorts de protection magique dissipés par le Mot Secret incluent : Déviation de Sorts Mineure, Globe Mineur d'Invulnérabilité, Déviation de Sorts, Globe d'Invulnérabilité, Déviation de Sorts Majeure, Écran de Dissipation et Bouclier de Sort.
+
+Ce sort n'a aucun effet sur une cible protégée par Piège à Sorts ou Bouclier des Archontes. S'il est lancé sur une cible protégée par un Bouclier de Sorts, Mot Secret est entièrement consommé et ne supprimera pas une deuxième couche de protection.
+~
+//
+//
+@125131 = ~Breach~
+//
+@12513 = ~Breach
+Level: 5
+School: Abjuration
+Range: Long
+Duration: Instant
+Casting Time: 5
+Area of Effect: 1 creature
+Saving Throw: None
+
+When this spell is cast at a creature, it breaches and dispels all of the 'specific protections' and 'combat protections' on the target creature. The target's Magic Resistance, if any, does not affect this spell.
+
+The 'specific protections' dispelled by Breach include spells such as: Chaos Shield, Resist Fear, Spirit Ward, Spiritual Clarity, Chaotic Commands, Death Ward, Divine Protection, Emotion: Hope, Exaltation, Free Action, Impervious Sanctity of Mind, Mind Blank, Mirrored Eyes, Protection from Acid, Protection from Cold, Protection from Fire, Protection from Electricity, Protection from the Elements, Resist Elements, Protection from Divination, Protection from Energy, Protection from Magic Energy, Storm Shell, and Storm Shield. 
+
+The 'combat protections' dispelled by Breach include spells such as: Armor, Shield, Spirit Armor, Armor of Faith, Barkskin, Stoneskin, Iron Skin, Protection from Normal Weapons, Protection from Magical Weapons, Protection from Missiles, Physical Mirror, Circle of Bones, Cloak of Darkness, Emotion: Courage, Fire Shield, Acid Sheath, Moment of Prescience, and Absolute Immunity.~
+//
+//
+@125191 = ~Spell Shield~
+//
+@12519 = ~Spell Shield
+Level: 5
+School: Abjuration
+Range: Personal
+Duration: 5 turns
+Casting Time: 5
+Area of Effect: Caster
+Saving Throw: None
+
+When this spell is cast the wizard is protected from the next 'magic attack' spell that is used against <PRO_HIMHER>. If one of those spells is cast at the wizard this spell activates and absorbs the attack. However, this only works once as the Shell Shield is consumed in the process.
+
+The spells that Spell Shield protects the wizard from include: Spell Thrust, Secret Word, Pierce Magic, Ruby Ray, Warding Whip, and Pierce Shield.~
+//
+//
+@125221 = ~Déviation de Sorts~
+@12522 = ~Déviation de Sorts
+
+Niveau : 5
+École : Abjuration
+Portée : jeteur du sort
+Durée : 5 tours
+Temps d'incantation : 5
+Zone d'effet : jeteur du sort
+Jet de sauvegarde : aucun
+
+Ce sort d'abjuration absorbe tous les sorts lancés contre le magicien. Il affecte un total de 9 niveaux de sorts, mais le fait d'avoir un seul niveau de protection signifie qu'un sort de niveau 1 sera absorbé, de même qu'un sort de niveau 9. Ce sort ne protège pas le lanceur d'une Dissipation de la Magie, bien qu'il ne soit pas non plus dissipé par celle-ci.
+
+Lancer ce sort élève automatiquement un effet de Déviation de Sorts Mineure supplémentaire. Cet effet n'offrira pas au lanceur de niveaux de sorts de protections. Ses 4 niveaux de sort de protections seront utilisés en même temps que les 9 du sort principal. Par contre le lanceur disposera d'un total de deux couches de protection contre les attaques magiques comme Annulation des Protections et Perce-Magie
+
+Ce sort absorbe les sorts provenant de parchemins et les compétences semblables aux sorts, mais ne protège pas contre les sorts de zone stationnaires (comme Nuage Mortel ou Nuage Puant).
+~
+//
+//
+@126021 = ~Globe d'Invulnérabilité~
+@12602 = ~Globe d'Invulnérabilité
+
+Niveau : 6
+Ecole : Abjuration
+Portée : jeteur du sort
+Durée : 1 round / niveau
+Temps d'incantation : 6
+Zone d'effet : jeteur du sort
+Jet de sauvegarde : aucun
+
+Ce sort crée autour du lanceur de sorts une sphère magique faiblement phosphorescente qui empêche tous les sorts de premier, second, troisième et quatrième niveau d'y pénétrer (i.e. : la zone d'effet de ces sorts n'inclut pas l'espace du Globe d'Invulnérabilité). Cela comprend les capacités innées et les effets des dispositifs. N'importe quel sort peut cependant être jeté depuis l'intérieur de la sphère sans pour autant affecter le Globe d'Invulnérabilité. Les sorts de 5ème niveau et plus ne sont pas affectés par ce sort. Ce globe peut être détruit par lmes formes d’assaut magiques d'abjuration comme un sort de Perce-Magie ou d'Anéantissement des Défenses.
+~
+//
+//
+@126081 = ~Perce-Magie~
+@12608 = ~Perce-Magie
+
+Niveau : 6
+Ecole : Abjuration
+Portée : longue
+Durée : spéciale
+Temps d'incantation : 6
+Zone d'effet : 1 créature
+Jet de sauvegarde : aucun
+
+Ce sort a deux effets majeurs sur sa cible. Tout d'abord, la résistance à la magie de la cible est temporairement annulée. Cette résistance reste abaissée durant 2 rounds
+
+Ensuite, 3 couches de protections magiques sont dissipées. Ainsi, le sort dissipera une Déviation de Sorts Majeure, une Déviation de Sorts et une Déviation de Sorts Mineure, ou une Déviation de Sorts Majeure, une Déviation de Sorts et un Globe d'Invulnérabilité, etc. La protection magique dissipée sera toujours celle de niveau le plus élevé. Si deux protections ou plus sont du même niveau, le sort dissipé sera choisi aléatoirement. Le second effet du sortilège est que , et cet effet ne peut en aucune manière être dissipé. La résistance magique de la cible est ignorée.
+
+Les sorts de protection magique dissipés par Perce-Magie incluent: Déviation de Sorts Mineure, Globe Mineur d'Invulnérabilité, Déviation de Sorts, Globe d'Invulnérabilité, Déviation de Sorts Majeure, Écran de Dissipation, Bouclier de Sort.
+
+Ce sort n'a aucun effet sur une cible protégée par Piège à Sorts ou Bouclier des Archontes. S'il est lancésur une cible protégée par un Bouclier de Sorts, Perce-Magie est entièrement consommé et ne supprimera pas une deuxième ou troisième couche de protection.    
+~
+//
+//
+@127011 = ~Déviation de Sorts Majeure~
+@12701 = ~Déviation de Sorts Majeure
+
+Niveau : 7
+École : Abjuration
+Portée : jeteur du sort
+Durée : 5 tours
+Temps d'incantation : 7
+Zone d'effet : jeteur du sort
+Jet de sauvegarde : aucun
+
+Ce sort d'abjuration absorbe tous les sorts lancés contre le magicien. Il affecte un total de 18 niveaux de sorts, mais le fait d'avoir un seul niveau de protection signifie qu'un sort de niveau 1 sera absorbé, de même qu'un sort de niveau 9. Ce sort ne protège pas le lanceur d'une Dissipation de la Magie, bien qu'il ne soit pas non plus dissipé par celle-ci.
+
+
+Lancer ce sort élève automatiquement un effet de Déviation de Sorts et un de Déviation de Sorts Mineure supplémentaires. Ces effets n'offriront pas au lanceur de niveaux de sorts de protections. Ses 4 niveaux de sort de protections seront utilisés en même temps que les 18 du sort principal. Par contre le lanceur disposer d'un total de trois couches de protection contre les attaques magiques comme Annulation des Protections et Perce-Magie
+
+Ce sort absorbe les sorts provenant de parchemins et les compétences semblables aux sorts, mais ne protège pas contre les sorts de zone stationnaires (comme Nuage Mortel ou Nuage Puant).
+~
+//
+//
+@127041 = ~Rayon Rubis d'Inversion~
+@12704 = ~Rayon Rubis d'Inversion
+
+Niveau : 7
+Ecole : Altération
+Portée : longue
+Durée : instantanée
+Temps d'incantation : 5
+Zone d'effet : 1 créature
+Jet de sauvegarde : aucun
+
+Ce sort annule trois couches de protection contr eles sorts sur la cible. Ainsi, le sort dissipera une Déviation de Sorts Majeure, une Déviation de Sorts et une Déviation de Sorts Mineure, ou une Déviation de Sorts Majeure, une Déviation de Sorts et un Globe d'Invulnérabilité, etc. La protection magique dissipée sera toujours celle de niveau le plus élevé. Si deux protections ou plus sont du même niveau, le sort dissipé sera choisi aléatoirement. La résistance magique des créatures affectées est ignorée.
+
+À la différence des attaques magiquesplus faible, un Rayon Rubis d'Inversion peut dissiper un Piège àSOrts ou un Bouclier des Archontes sur la cible. Quand il est lancé contre un de ces sorts, ou contre un Bouclier de Sorts, le Rayon Rubis d'Inversion est consommé entièrement et ne dissipera pas une deuxième ou troisième couche de protection.
+
+Les sorts de protection magique dissipés par le Rayon Rubis d'Inversion sont : Déviation de Sorts Mineure, Globe Mineur d'Invulnérabilité, Déviation de Sorts, Globe d'Invulnérabilité, Déviation de Sorts Majeure, Écran de Dissipation, Bouclier de Sorts, Bouclier des Archontes et Piège à Sorts.
+~
+//
+//
+@127051 = ~Fouet Protecteur de Khelben~
+@12705 = ~Fouet Protecteur de Khelben
+
+Niveau : 7
+Ecole : Évocation
+Portée : moyenne
+Durée : 3 rounds
+Temps d'incantation : 7
+Zone d'effet : 1 créature
+Jet de sauvegarde : aucun
+
+Ce sort dissipe deux couches de protection magique sur la cible. Ensuite, deux couches de protection magique supplémentaires sont dissipées chaque round, jusqu'à expiration du sort. La protection magique dissipée sera toujours celle de niveau le plus élevé. Si deux protections ou plus sont du même niveau, le sort dissipé sera choisi aléatoirement. La résistance magique de la cible est ignorée.
+
+Les sorts de protection magique dissipés par le Fouet Protecteur de Khelben sont : Déviation de Sorts Mineure, Globe Mineur d'Invulnérabilité, Déviation de Sorts, Globe d'Invulnérabilité, Déviation de Sorts Majeure, Écran de Dissipation et Bouclier de Sorts.
+
+Ce sort n'a aucun effet sur une cible protégée par Piège à Sorts ou Bouclier des Archontes.
+~
+//
+//
+@128051 = ~Perce-Bouclier~
+@12805 = ~Perce-Bouclier
+
+Niveau : 8
+Ecole : Abjuration
+Portée : longue
+Durée : spéciale
+Temps d'incantation : 8
+Zone d'effet : 1 créature
+Jet de sauvegarde : aucun
+
+Avec ce sort, le magicien lance une attaque massive contre les défenses physiques et magiques de la cible. Perce-Bouclier dissipe trois couches de protection magique sur la cible. La protection magique dissipée sera toujours celle de niveau le plus élevé. Si deux protections ou plus sont du même niveau, le sort dissipé sera choisi aléatoirement. Après avoir pénétré ses protections magiques, s'il ne reste plus de protections magiques, ce puissant sort va dissiper tous les sorts de protection de combat de la cible. La résistance magique de la cible est ignorée.
+
+Les sorts de protection magiques dissipés sont : Déviation de Sorts Mineure, Globe Mineur d'Invulnérabilité, Déviation de Sorts, Écran de Dissipation, Globe d'Invulnérabilité, Déviation de Sorts Majeure, Bouclier des Archontes et Piège à Sorts.
+
+Les sorts de protection de combat dissipés sont : Armure de Mage, Bouclier, Armure de la Foi, Peau d'Écorce, Protection contre les Projectiles, Armure Spirituelle, Peau de Pierre, Protection contre les Armes Non-Magiques, Protection contre les Armes Magiques, Miroir Physique, Manteau Prismatique, et Immunité Absolue.
+
+S'il estlancé contre un Bouclier de Sorts, Perce-Bouclier est consommé entièrement et ne dissipera pas de deuxième ou de troisième couchede protection.
+~
+//
+//
+@129021 = ~Piège à Sorts~
+@12902 = ~Piège à Sorts
+
+Niveau : 9
+Ecole : Abjuration
+Portée : jeteur du sort
+Durée : 1 tour
+Temps d'incantation : 1 round
+Zone d'effet : jeteur du sort
+Jet de sauvegarde : aucun
+
+Ce puissant sort d'abjuration permet au lanceur d'ignorer les effets des sorts lancés vers lui ou près de lui. C'est en quelque sorte une Coquille Antimagique à sens unique. Sous l'effet de Piège à Sorts, le lanceur est protégé de Dissipation de la Magie (quelque soit l'origine) mais peut être la cible d'attaques magiques dirctes comme Perce-Bouclier et Anéantissement des Défenses.
+~
+//
+//
+@129031 = ~Anéantissement des Défenses~
+@12903 = ~Anéantissement des Défenses
+
+Niveau : 9
+Ecole : Abjuration
+Portée : longue
+Durée : spéciale
+Temps d'incantation : 5
+Zone d'effet : 1 créature
+Jet de sauvegarde : aucun
+
+Ce sort annule toutes les protections magiques de n'importe quel niveau sur la cible. De plus , la cible se verra souffrir d'un échec au lancer des sorts de 100% le premier round puis 50% le second round. La résistance magique des créatures affectées est ignorée.
+
+Les sorts de protection magique dissipés par l'Anéantissement des Défenses sont : Déviation de Sorts Mineure, Globe Mineur d'Invulnérabilité, Déviation de Sorts, Écran de Dissipation, Globe d'Invulnérabilité, Déviation de Sorts Majeure, Bouclier des Archontes, Esprit Vierge et Piège à Sorts.
+~
+//
+//
+@123101 = ~Protection contre la Divination~
+@12310 = ~Protection contre la Divination
+
+Niveau : 3
+École : Abjuration
+Portée : toucher
+Durée : 8 heures
+Temps d'incantation : 3
+Zone d'effet : 1 créature
+Jet de sauvegarde : aucun
+
+Une fois ce sort lancé, si la cible devient invisible, sanctuarisée ou se cache, les sorts de divination comme Purge d'Invisibilité, Oracle, Vision Véritable et la capacité de Détection des Illusions d'un voleur ne permettront pas de dissiper l'invisibilité ou de mettre à jour la créature cachée. (Quelqu'un capable de percevoir les créatures invisibles pourra cependeant détecter et cibler le bénéficiaire de ce sort)
+~
+//
+//
+@14550 = ~Anti-Magic Ray~
+@14992 = ~Anti-Magic Ray~
+//
+//

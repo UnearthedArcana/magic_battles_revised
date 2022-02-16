@@ -1,6 +1,6 @@
 BACKUP ~magic_battles_revised/backup~
 AUTHOR ~subtledoc~
-VERSION ~1.2~ 
+VERSION ~1.3~ 
 
 ALWAYS
 
@@ -10,7 +10,18 @@ END
 
 /* Language Settings */
 AUTO_TRA ~magic_battles_revised/lang/%s~
-LANGUAGE ~English~ ~english~ ~magic_battles_revised/lang/english/setup.tra~ 
+LANGUAGE
+  ~English~
+  ~english~
+  ~magic_battles_revised/lang/english/setup.tra~ 
+
+LANGUAGE
+  ~Français~
+  ~french~
+  ~magic_battles_revised/lang/french/setup.tra~
+
+
+//____________________________________________________________________________________
 
 
 BEGIN @10
