@@ -23,13 +23,13 @@ COPY_EXISTING ~msectype.2da~ ~override~
   FOR (row = 1; row < rows; ++row) BEGIN
     READ_2DA_ENTRY row 0 2 sec_typ
     PATCH_IF (~%sec_typ%~ STRING_EQUAL_CASE ~breach~) BEGIN
-      SET breach_sectype = row
+      SET breach_sectype = (row - 1)
     END
     PATCH_IF (~%sec_typ%~ STRING_EQUAL_CASE ~spellshield~) BEGIN
-      SET spellshield_sectype = row
+      SET spellshield_sectype = (row - 1)
     END
     PATCH_IF (~%sec_typ%~ STRING_EQUAL_CASE ~k1#Dispel~) BEGIN
-      SET k1_dispel_sectype = row
+      SET k1_dispel_sectype = (row - 1)
     END
   END
 IF_EXISTS BUT_ONLY
