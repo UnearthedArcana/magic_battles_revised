@@ -902,6 +902,8 @@ ACTION_FOR_EACH br_spl IN ~spwi513~ ~dfp2513~ ~d5f2513~ ~d5_rabre~ BEGIN
 END
 
 COPY ~%MOD_FOLDER%/data/spl/spwi513b.spl~ ~override~
+    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 221 parameter1 = 10 END
+    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 230 parameter1 = 10 END
 	PATCH_IF breach_combat = 0 BEGIN
 	  LPF DELETE_EFFECT INT_VAR match_opcode = 221 match_parameter2 = 7 END
 	END
@@ -965,6 +967,8 @@ END
 // Remove Magic  
 
 COPY ~%MOD_FOLDER%/data/spl/d5disrem.spl~ ~override~
+  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 221 parameter1 = 10 END
+  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 230 parameter1 = 10 END
 
 ACTION_IF !(FILE_EXISTS_IN_GAME ~a^dispe2.spl~) BEGIN
  ACTION_FOR_EACH rm_spl IN ~spwi302~ ~rr#wi302~ ~ohbwi302~ ~staf11a~ BEGIN
