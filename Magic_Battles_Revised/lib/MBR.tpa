@@ -621,7 +621,7 @@ COPY ~%MOD_FOLDER%/data/spl/spwi321c.spl~ ~override~
     LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 221 parameter2 = %spellshield_sectype% END
     LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 230 parameter2 = %spellshield_sectype% END
   END
-  
+
 
 // secret word
 
@@ -861,6 +861,60 @@ ACTION_IF (st_lvl != 3) AND (st_lvl > 0) AND (st_lvl < 10) BEGIN
 	BUT_ONLY
   END
 
+  ACTION_IF (FILE_EXISTS_IN_GAME ~d5__5E_casting_arcane.d5~) BEGIN
+    COPY_EXISTING ~d5zclons.2da~ ~override~
+      COUNT_2DA_ROWS 5 rows
+      FOR (row  = 1;row <rows; ++row) BEGIN
+        READ_2DA_ENTRY row 2 5 splth
+        PATCH_IF (~%splth%~ STRING_EQUAL_CASE ~spwi321~) BEGIN
+          READ_2DA_ENTRY row 0 5 zind
+        END
+      END    
+    IF_EXISTS BUT_ONLY
+  END
+/*  why bother?
+  ACTION_IF (VARIABLE_IS_SET %zind%) BEGIN
+    COPY_EXISTING ~d5z%zind%i.spl~ ~override~
+      LPF ALTER_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~spwi321~ resource = EVAL ~%spell_res%~ END
+      LPF ALTER_EFFECT INT_VAR match_opcode = 148 STR_VAR match_resource = ~spwi321~ resource = EVAL ~%spell_res%~ END
+    IF_EXISTS BUT_ONLY
+  END
+*/
+  OUTER_SET lose_spell_on_interrupt = 0
+  ACTION_IF (FILE_EXISTS_IN_GAME ~d5d5zlotr.bcs~) BEGIN
+    COPY_EXISTING ~d5d5zlotr.bcs~ ~override~
+      DECOMPILE_AND_PATCH BEGIN
+        REPLACE_TEXTUALLY ~spwi321~ ~%spell_res%~
+      END
+    BUT_ONLY
+  END
+  ACTION_IF (FILE_EXISTS_IN_GAME ~d5xsorc.itm~) BEGIN
+    INCLUDE ~%MOD_FOLDER%/lib/semi_spontaneous.tpa~
+    APPEND ~d5xsorc.2da~ ~sorcerer	%spell_res%	3~
+    COPY_EXISTING ~%spell_res%.spl~ ~override~
+      READ_ASCII 0x3a spell_icon
+    BUT_ONLY
+    COPY_EXISTING ~%MOD_FOLDER%/data/d5_base.spl~ ~override/%spell_res%w.spl~
+      SAY NAME1 @123211
+      SAY UNIDENTIFIED_DESC @12321
+	  WRITE_EVALUATED_ASCII 0x3a ~%spell_icon%~ #8
+	  LPF ALTER_SPELL_HEADER STR_VAR icon = EVAL ~%spell_icon%~ END
+  	  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 171 target = 1 timing = 9 STR_VAR resource = ~%spell_res%~ END
+  	COPY_EXISTING ~d5xclons.2da~ ~override~
+  	  REPLACE_TEXTUALLY ~SPWI321~ ~%spell_res%~
+  	IF_EXISTS BUT_ONLY
+  	COPY_EXISTING ~d5xclons.2da~ ~override~
+      COUNT_2DA_ROWS 5 rows
+      FOR (row  = 1;row <rows; ++row) BEGIN
+        READ_2DA_ENTRY row 1 5 spl
+        PATCH_IF (~%spl%~ STRING_EQUAL_CASE ~%spell_res%~) BEGIN
+          SET_2DA_ENTRY row 4 5 no
+        END
+      END
+  	IF_EXISTS BUT_ONLY      
+    LAF semi_sorcerer_casting END
+  END
+  
 END
 
 
@@ -919,6 +973,8 @@ COPY ~%MOD_FOLDER%/data/spl/spwi513b.spl~ ~override~
 
 ACTION_IF (FILE_EXISTS_IN_GAME ~spwi513c.spl~) BEGIN
   COPY ~%MOD_FOLDER%/data/spl/spwi513c.spl~ ~override~
+    SAY NAME1 ~~
+    SAY UNIDENTIFIED_DESC ~~
     PATCH_IF (VARIABLE_IS_SET %k1_dispel_sectype%) BEGIN
       LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 221 parameter2 = %k1_dispel_sectype% END
       LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 230 parameter2 = %k1_dispel_sectype% END
