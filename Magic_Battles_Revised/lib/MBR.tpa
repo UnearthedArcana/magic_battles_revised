@@ -560,6 +560,7 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~k1#scre.spl~) BEGIN
   COPY_EXISTING ~k1#scre.spl~ ~override~
     LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 206 STR_VAR match_resource = ~spwi513b~ resource = ~spin550b~ END
     LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 206 STR_VAR match_resource = ~spwi513b~ resource = ~spin992b~ END
+    LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 206 STR_VAR match_resource = ~spwi513b~ resource = ~d5disrem~ END
   COPY_EXISTING ~spin550.spl~ ~override~
     LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 2 parameter2 = 1 timing = 1 STR_VAR resource = ~spin550d~ END
   COPY ~%MOD_FOLDER%/data/spl/spin550c.spl~ ~override~
