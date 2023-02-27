@@ -1055,6 +1055,8 @@ COPY ~%MOD_FOLDER%/data/spl/d5disrem.spl~ ~override~
   LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 221 parameter1 = 10 END
   LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 230 parameter1 = 10 END
 
+COPY ~%MOD_FOLDER%/data/spl/d5dispel.spl~ ~override~
+
 ACTION_IF !(FILE_EXISTS_IN_GAME ~a^dispe2.spl~) BEGIN
  ACTION_FOR_EACH rm_spl IN ~spwi302~ ~rr#wi302~ ~ohbwi302~ ~staf11a~ BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~%rm_spl%.spl~) BEGIN
