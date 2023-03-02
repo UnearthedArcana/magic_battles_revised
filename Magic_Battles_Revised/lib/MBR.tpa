@@ -443,7 +443,7 @@ COPY ~%MOD_FOLDER%/data/bam-vvc/swirlt.vvc~ ~override/dkswrlt.vvc~
 
 ACTION_FOR_EACH sota_spl IN ~sppr701~ ~qdfv_701~ ~dgarchon~ ~dwsp701~ BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~%sota_spl%.spl~) BEGIN
-    COPY ~%MOD_FOLDER%/data/spl/%sd_spl%.spl~ ~override~
+    COPY ~%MOD_FOLDER%/data/spl/%sota_spl%.spl~ ~override~
       SAY NAME1 @117011
       SAY UNIDENTIFIED_DESC @11701
       READ_SHORT 0x1c spl_typ
