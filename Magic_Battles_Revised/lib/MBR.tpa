@@ -814,7 +814,7 @@ ACTION_IF (st_lvl != 3) AND (st_lvl > 0) AND (st_lvl < 10) BEGIN
   ADD_SPELL ~override/spwi321.spl~ 2 %st_lvl% WIZARD_SPELL_THRUST
     SAY NAME1 @123211
 	SAY UNIDENTIFIED_DESC @12321
-	WRITE_LONG 0x34 1
+	WRITE_LONG 0x34 %st_lvl%
   LAF RES_NUM_OF_SPELL_NAME
 	STR_VAR spell_name = ~WIZARD_SPELL_THRUST~
 	RET spell_res
