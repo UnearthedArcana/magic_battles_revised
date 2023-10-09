@@ -1,6 +1,6 @@
 BACKUP ~weidu_external/backup/magic_battles_revised~
 AUTHOR ~subtledoc~
-VERSION ~1.8~ 
+VERSION ~1.9~ 
 
 ALWAYS
 
@@ -42,7 +42,6 @@ LAF mbr
     sd_block = %spell_deflection_levels_blocked% 
     gsd_block = %greater_deflection_levels_blocked% 
     sota_block = %shield_of_the_archons_levels_blocked% 
-    st_lvl = %spell_thrust_level% 
     attack_delay = %spell_attack_delay% 
     globe_bypass = %dispel_bypass_globes% 
     friendly_dispel = %party_friendly_dispel%

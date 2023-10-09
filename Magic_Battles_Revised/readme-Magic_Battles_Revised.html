@@ -1,19 +1,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>Magic Battles Revised</title>
+<title>SubtleMods: Magic Battles Revised</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link rel="stylesheet" href="style/g3readme_cam.css" type="text/css" />
 <link href="style/g3icon.ico" rel="icon" type="image/bmp" />
 </head>
 <body>
-<h1>An overhaul of the "mage duel" rules to make spell battles quicker, more satisfying, and more sensible.</h1>
+<h1>SubtleMods: Magic Battles Revised</h1>
 <div class="section">
-  <p><strong>Author:</strong> <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
-</p>
-  <p><strong> Version 1.3 </strong><br />
-    <strong> Languages:</strong> English<br />
-    <strong>Platforms: </strong>Windows, Mac OS X</p>
+  <p><strong> Version 1.9 </strong><br />
+  <strong> Languages:</strong> English</p>
+  <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">The Subtle Doctor</a></strong></p>
+  <p><strong><a href="https://github.com/UnearthedArcana/magic_battles_revised">Home page</a></strong></p>
+  <p><strong><a href="https://www.gibberlings3.net/forums/topic/33351-subtlemods-magic-battles-revised-streamlined-rules-for-mage-duels/">Discussion Forum</a></strong></p>
+  <p><strong><a href="https://github.com/UnearthedArcana/magic_battles_revised/releases">Download</a></strong></p>
 </div>
 <h2>Overview</h2>
 <div class="section">
@@ -86,7 +87,6 @@
 <div class="section">
   <p>There are lots. They are controlled by the 'MBR_settings.ini' file. You can modify these settings before installing the mod. I will explain each one here.</p>
   <p>"<b>minor_deflection_levels_blocked</b>" These settings determine how many spell levels are blocked by the various Deflection spells. The default values are 5/10/20, and 30 for <i>Shield of the Archons</i>.</p>
-  <p><b>spell_thrust_level</b> This lets you set the spell level of <i>Spell Thrust</i>. Remember, as long as the enemy does not have a <i>Spell Trap</i>, <i>Spell Thrust</i> is always useful! It may take a while, but repeated application of <i>Spell Thrust</i> can eventually take down any and all spell defenses. The default value here changes it to a 1st level spell, so that you can be more likely to have more of these memorized as last-ditch reserve of magic attacks. (<b>Note</b>, this is compatible with the "Level 1 Cantrips" component of the Tome & Blood mod.) But you can change it to 2, or set it back to 3, or whatever.</p>
   <p><b>spell_attack_delay</b> You can set this between 1 and 5, and it will mean that the effects of magic attacks will be slightly delayed. So instead of slamming an opponent with Breach immediately after your Ruby Ray destroys his spell protections, you will have to wait for a second or two. Theoretically this can add some tension and drama to magic attacks. But I haven't played around with it very much. The default value is 0.</p>
   <p><b>dispel_bypass_globes</b> As I said above, the default behavior is for <i>Dispel Magic</i> and <i>Remove Magic</i> to bypass <i>Globes of Invulnerability</i> and innate spell-level immunity. By setting this value to 0 you can reverse that, such that <i>DM</i> and <i>RM</i> are completely blocked by spell-level immunities.</p>
   <p><b>party_friendly_dispel</b> This makes <i>Dispel Magic</i> only affect enemies. Effectively, this means instead of <i>Dispel Magic</i> and the new version of <i>Remove Magic</i>, you will have the old version of </i>Remove Magic</i> and the new version of </i>Remove Magic</i>.</p>
