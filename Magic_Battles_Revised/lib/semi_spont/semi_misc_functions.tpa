@@ -1,5 +1,5 @@
 
-// v11.5 - fixed Identify for Vancian casting
+// v12.1 - fixed kitlist function
 
 /*
 
@@ -12,6 +12,9 @@ functions in this file:
 
 - semi_armor_casting - line 
     sets armor to block arcane 5E casting
+
+- define_priest_spells
+	collects all priest spells and sorts by who gets what
 
 - free_known_spells - line 
     input a free_spell (can run multiple free_spells for the same list_spell)
@@ -504,6 +507,68 @@ h// no no no! just change 145 effects in armors to 144 effects!
 END		//	end with_tra
 
 END		//	end define function
+
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+
+DEFINE_ACTION_MACRO define_priest_spells BEGIN
+
+// sorts priest spells by who gets what
+
+COPY_EXISTING ~mxsplpal.2da~ ~override~
+  COUNT_2DA_COLS cols
+  PATCH_IF (cols > 1) BEGIN
+    SET max_lvl_pal = cols
+  END
+BUT_ONLY
+
+COPY_EXISTING ~mxsplran.2da~ ~override~
+  COUNT_2DA_COLS cols
+  PATCH_IF (cols > 1) BEGIN
+    SET max_lvl_ran = cols
+  END
+BUT_ONLY
+
+COPY_EXISTING_REGEXP ~^[Ss][Pp][Pp][Rr][1-7][0-5a-zA-Z][0-9a-zA-Z]\.spl$~ ~override~
+  PATCH_IF (%SOURCE_SIZE% > 0x71) BEGIN
+    PATCH_IF !(FILE_CONTAINS_EVALUATED (~hidespl.2da~ ~%SOURCE_RES%~)) BEGIN
+      READ_SHORT 0x1c spl_typ
+      READ_LONG 0x34 spl_lvl
+      PATCH_IF (spl_typ = 2) BEGIN
+        READ_BYTE 0x21 exclude
+        PATCH_IF ((exclude BAND 0b11000000) = 0b10000000) BEGIN // valid for clerics
+          SPRINT $cleric_valid_spells(~%SOURCE_RES%~)~1~
+          PATCH_IF (spl_lvl <= %max_lvl_pal%) BEGIN
+            SPRINT $paladin_valid_spells(~%SOURCE_RES%~)~1~
+          END
+        END
+        PATCH_IF ((exclude BAND 0b11000000) = 0b01000000) BEGIN // valid for druids
+          SPRINT $druid_valid_spells(~%SOURCE_RES%~)~1~
+          PATCH_IF (spl_lvl <= %max_lvl_ran%) BEGIN
+            SPRINT $ranger_valid_spells(~%SOURCE_RES%~)~1~
+          END
+        END
+        PATCH_IF ((exclude BAND 0b11000000) = 0b00000000) BEGIN // valid for both
+          SPRINT $cleric_valid_spells(~%SOURCE_RES%~)~1~
+          SPRINT $druid_valid_spells(~%SOURCE_RES%~)~1~
+          PATCH_IF (spl_lvl <= %max_lvl_pal%) BEGIN
+            SPRINT $paladin_valid_spells(~%SOURCE_RES%~)~1~
+          END
+          PATCH_IF (spl_lvl <= %max_lvl_ran%) BEGIN
+            SPRINT $ranger_valid_spells(~%SOURCE_RES%~)~1~
+          END
+        END
+        PATCH_IF ((exclude BAND 0b11000000) = 0b11000000) BEGIN // valid for neither
+          SPRINT $shaman_only_spells(~%SOURCE_RES%~)~1~
+	    END
+	  END
+	END
+  END
+BUT_ONLY
+
+END	//	end macro
 
 
 //__________________________________________________________________________________
@@ -2738,39 +2803,57 @@ END
 // fix kitlist IDS entries
 
 DEFINE_ACTION_FUNCTION fix_kitlist_missing_ids BEGIN
-	COPY_EXISTING ~kitlist.2da~ ~override~
-		PRETTY_PRINT_2DA
-		PATCH_IF ~%entry%~ STR_EQ ~~ BEGIN
-			READ_2DA_ENTRY 1 0 1 "entry"
-		END
-		COUNT_2DA_COLS "cols"
-		SET cnt = 0
-		REPLACE_EVALUATE ~^\(.+\)$~ BEGIN
-			PATCH_IF cnt >= 3 BEGIN
-				INNER_PATCH_SAVE MATCH1 ~%MATCH1%~ BEGIN
-					COUNT_REGEXP_INSTANCES ~ +~ num_matches
-					WHILE (num_matches < (cols - 1)) BEGIN
-						REPLACE_TEXTUALLY ~$~ ~ ZZZZZ~
-						SET num_matches = num_matches + 1
-					END
-				END
-			END ELSE BEGIN
-				SET cnt = cnt + 1
-			END
-		END ~%MATCH1%~
-		PRETTY_PRINT_2DA
-	BUT_ONLY
-	COPY_EXISTING ~kitlist.2da~ ~override~
-		COUNT_2DA_ROWS 10 rows
-		FOR (row = 1; row < rows; ++row) BEGIN
-			SET val = (row - 12)
-			TEXT_SPRINT new_ids ~000040%val%~
-			READ_2DA_ENTRY row 9 10 ids_val
-			PATCH_IF !(IS_AN_INT ~%ids_val%~) BEGIN
-				SET_2DA_ENTRY row 9 10 ~0x%new_ids%~
-			END
-		END
-	BUT_ONLY
+  COPY_EXISTING ~kitlist.2da~ ~override~
+    PRETTY_PRINT_2DA
+    PATCH_IF ~%entry%~ STR_EQ ~~ BEGIN
+      READ_2DA_ENTRY 1 0 1 "entry"
+    END
+    COUNT_2DA_COLS "cols"
+    SET cnt = 0
+    REPLACE_EVALUATE ~^\(.+\)$~ BEGIN
+      PATCH_IF cnt >= 3 BEGIN
+        INNER_PATCH_SAVE MATCH1 ~%MATCH1%~ BEGIN
+          COUNT_REGEXP_INSTANCES ~ +~ num_matches
+          WHILE (num_matches < (cols - 1)) BEGIN
+            REPLACE_TEXTUALLY ~$~ ~  ZZZZZ~
+            SET num_matches = num_matches + 1
+          END
+        END
+      END ELSE BEGIN
+      	SET cnt = cnt + 1
+      END
+    END ~%MATCH1%~
+    PRETTY_PRINT_2DA
+  BUT_ONLY
+
+  COPY_EXISTING ~kitlist.2da~ ~override~
+    COUNT_2DA_ROWS 10 k_rows
+    FOR (k_row = 1; k_row < k_rows; ++k_row) BEGIN
+      SPRINT ids_num ~0x00004000~
+      READ_2DA_ENTRY k_row 9 10 ids_val
+      PATCH_IF !(IS_AN_INT %ids_val%) /*(~%ids_val%~ STRING_EQUAL_CASE ~ZZZZZ~)*/ BEGIN
+        READ_2DA_ENTRY k_row 1 10 kit_name
+        INNER_ACTION BEGIN
+          COPY_EXISTING ~kit.ids~ ~override~
+            COUNT_2DA_ROWS 2 i_rows
+            FOR (i_row = 1; i_row < i_rows; ++i_row) BEGIN
+              READ_2DA_ENTRY i_row 1 2 ids_name
+              PATCH_IF (~%ids_name%~ STRING_EQUAL_CASE ~%kit_name%~) BEGIN
+                READ_2DA_ENTRY i_row 0 2 ids_num
+              END
+            END
+          IF_EXISTS BUT_ONLY
+        END
+        SPRINTF ids_hex "%x" (%ids_num%)
+        SPRINT new_ids_val ~zzzzz%ids_hex%~
+        SET_2DA_ENTRY k_row 9 10 ~%new_ids_val%~
+      END
+    END
+  BUT_ONLY
+  
+  COPY_EXISTING ~kitlist.2da~ ~override~
+    REPLACE_TEXTUALLY ~zzzzz0x4~ ~0x00004~
+  BUT_ONLY
 END
 
 
